@@ -1,16 +1,10 @@
-import { Locale, getDictionary } from "@/lib/get-dictionary"
+import { getDictionary } from "@/lib/get-dictionary"
 
-type Props = {
-    params: {
-        lang: Locale
-    }
-}
+export default async function Home({ params: { lang } } : { params: { lang: string } }) {
 
-export default async function Home({ params: { lang } }: Props) {
-
-    const intl = await getDictionary(lang)
+    const dictionary = await getDictionary(lang)
 
     return(
-        <h1>Hello {intl.test}</h1>
+        <h1>Hello {dictionary.test}</h1>
     )
 }
