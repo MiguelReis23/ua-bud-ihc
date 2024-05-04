@@ -8,6 +8,9 @@ const dictionaries = {
   es: () => import('@/app/[lang]/dictionaries/es.json').then((module) => module.default),
 }
  
-export const getDictionary = async (locale: Locale) => {
-  return locale == 'en' ? dictionaries.en() : locale == 'pt' ? dictionaries.pt() : dictionaries.es()
+export const getDictionary = async (locale: string) => {
+  if (locale == 'pt') { return dictionaries.pt() }
+  if (locale == 'es') { return dictionaries.es() }
+  
+  return dictionaries.en()
 }
