@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "subject": "Request Physical Internet Connection",
+      "priority": "3",
+      "date": "04/04/24",
+      "requester": "Kushwaha Chopra",
+      "responsible": "Emidio Costa",
+      "status": "closed",
+      "lastMessage": "20 days ago",
+      "details": "Teste"
+    },
+    {
+      "id": 2,
+      "subject": "Teste",
+      "priority": "2",
+      "date": "04/04/24",
+      "requester": "Emídio Costo",
+      "responsible": "Kushwaha Chopra",
+      "status": "closed",
+      "lastMessage": "3 days ago"
+    }
+]

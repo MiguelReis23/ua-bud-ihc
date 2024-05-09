@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <title>My App</title>
       </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased min-w-screen", fontSans.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
       </body>

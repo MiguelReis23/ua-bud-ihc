@@ -1,4 +1,4 @@
-import { Plus } from 'lucide-react';
+import { ArrowLeft, Plus } from 'lucide-react';
 import { History } from 'lucide-react';
 
 type IconProps = React.HTMLAttributes<SVGElement>
@@ -17,4 +17,8 @@ export const Icons = {
     add: (props: IconProps) => (
         <Plus {...props} />
     ),
+    back: (props: IconProps) => (
+        <ArrowLeft {...props} />
+    )
+    
 }
