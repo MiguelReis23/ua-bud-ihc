@@ -1,6 +1,7 @@
-import Link from "next/link"
+import Link from 'next/link'
+import { SiteHeader } from "@/components/site-header"
+import { getDictionary } from "@/lib/get-dictionary"
 import { Textarea } from "@/components/ui/textarea"
-import { Card } from "@/components/ui/card"
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import TicketsData from "../tickets.json"
@@ -19,6 +20,7 @@ export default function TicketID({params}:{params: {ticketId: string}}) {
         return <NotFound />
     }
   return (
+    <>
     <div className="flex h-screen w-full flex-col">
       <header className="flex h-16 items-center border-b border-gray-200 px-4 md:px-6 dark:border-gray-800">
       <Link href="/tickets">
@@ -119,5 +121,6 @@ export default function TicketID({params}:{params: {ticketId: string}}) {
         </div>
       </main>
     </div>
+    </>
   )
 }

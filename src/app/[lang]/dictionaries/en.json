@@ -1,6 +1,7 @@
 {
     "myTickets": "My Tickets",
     "newTicket": "New Ticket",
+    "back": "Back",
     "carouselNetworksTitle": "Communication Networks",
     "carouselNetworksDescription": "Here you can report issues or ask for support regarding the cabled and wirless networks on campus.",
     "carouselElearningTitle": "E-Learning",
@@ -8,5 +9,13 @@
     "carouselOnlineFormsTitle": "Online Forms",
     "carouselOnlineFormsDescription": "Request access to implement surveys for research projects or curricular units.",
     "carouselHelpdeskTitle": "Helpdesk",
-    "carouselHelpdeskDescription": "Ask for in-person support regarding any issue you may have with the services provided by STIC."
+    "carouselHelpdeskDescription": "Ask for in-person support regarding any issue you may have with the services provided by STIC.",
+    "ticketSubject":"Subject",
+    "ticketDate": "Date",
+    "ticketStatus": "Status",
+    "ticketPriority":"Priority",
+    "ticketRequester":"Requester",
+    "ticketHandler":"Ticket Handler",
+    "ticketConversations":"Conversation",
+    "ticketTypeMessage": "Type your message..."
 }
