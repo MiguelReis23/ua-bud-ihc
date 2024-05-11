@@ -1,7 +1,9 @@
 {
     "myTickets": "Meus Tickets",
+    "ManageTickets": "Gerir Tickets",
     "newTicket": "Novo Ticket",
     "back": "Voltar",
+    "search": "Procurar artigos",
     "carouselNetworksTitle": "Redes de Comunicação",
     "carouselNetworksDescription": "Aqui pode reportar problemas ou pedir apoio relativamente às redes com fios e sem fios no campus.",
     "carouselElearningTitle": "E-Learning",

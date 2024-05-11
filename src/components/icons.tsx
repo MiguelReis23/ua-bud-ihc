@@ -1,5 +1,6 @@
 import { ArrowLeft, Plus, ArrowUpDown } from 'lucide-react';
 import { History } from 'lucide-react';
+import { Search } from 'lucide-react';
 
 type IconProps = React.HTMLAttributes<SVGElement>
 
@@ -22,6 +23,8 @@ export const Icons = {
     ),
     arrowupdown: (props: IconProps) => (
         <ArrowUpDown {...props} />
+    ),
+    search: (props: IconProps) => (
+        <Search {...props} />
     )
-    
 }

@@ -5,7 +5,7 @@ import { Icons } from '@/components/icons'
 import {SearchBar} from "@/components/searchbar"
 import  Link  from 'next/link'
 
-export function SiteHeader({ dictionary } : { dictionary: any }) {
+export function AdminHeader({ dictionary } : { dictionary: any }) {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" >
             <div className="container flex max-w-screen-2xl items-center py-2">
@@ -15,7 +15,7 @@ export function SiteHeader({ dictionary } : { dictionary: any }) {
                     <nav className="flex items-center space-x-4">
                         <Link href= "/tickets">
                             <Button variant="secondary">
-                                <Icons.history className="mr-2" /> {dictionary.myTickets.toUpperCase()}
+                                <Icons.history className="mr-2" /> {dictionary.ManageTickets.toUpperCase()}
                             </Button>
                         </Link>
                         <Link href="/newticket">

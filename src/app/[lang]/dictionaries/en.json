@@ -1,7 +1,9 @@
 {
     "myTickets": "My Tickets",
+    "ManageTickets": "Manage Tickets",
     "newTicket": "New Ticket",
     "back": "Back",
+    "search": "Search articles",
     "carouselNetworksTitle": "Communication Networks",
     "carouselNetworksDescription": "Here you can report issues or ask for support regarding the cabled and wirless networks on campus.",
     "carouselElearningTitle": "E-Learning",
