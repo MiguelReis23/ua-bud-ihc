@@ -19,5 +19,24 @@
     "ticketRequester":"Requisitante",
     "ticketHandler":"Responsável",
     "ticketConversations":"Conversa",
-    "ticketTypeMessage": "Digite a sua mensagem..."
+    "ticketTypeMessage": "Digite a sua mensagem...",
+    "title1": "Correio Eletronico",
+    "description1": "Correio eletrónico institucional, mailing lists, lista decontactos, calenário",
+    "title2": "Alojamento Web",
+    "description2": "Pataforma de alojamento de conteúdos web para projetos,parcerias, UCs e páginas pessoais.",
+    "title3": "Audiovisuais",
+    "description3": "Instalação de equipamentos, gestão da plataforma Educast e apoio à realização de produções audiovisuais.",
+    "title4": "E-Learning",
+    "description4": "Gerir áreas e utilizadores da plataforma de apoio à aprendizagem orientada para o ensino à distância.",
+    "title5":"Inquérito Online",
+    "description5":"Serviço para criar formulários e inquéritos para recolha de dados no âmbito de projetos.",
+    "title6": "Redes de Comunicação",
+    "description6":" Serviço de comunicações de dados departamental, acesso à internet, através de rede cablada e wireless.",
+    "title7": "Gestão de utilizadores",
+    "description7": " Gestão da identidade eletrónica dos utilizadores da comunidade académica: dados pessoais, credenciais de acesso, etc...",
+    "title8": "Helpdesk",
+    "description8": " Suporte técnico para apoio presencial ou através de video-chamada.",
+    "title9": "Reportar Incidentes",
+    "description9": " Solicitar assistência para um problema de segurança, desempenho ou indisponibilidade."
+
 }
