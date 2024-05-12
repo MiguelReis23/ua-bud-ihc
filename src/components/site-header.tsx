@@ -18,7 +18,7 @@ export function SiteHeader({ dictionary } : { dictionary: any }) {
                                 <Icons.history className="mr-2" /> {dictionary.myTickets.toUpperCase()}
                             </Button>
                         </Link>
-                        <Link href="/newticket">
+                        <Link href="/newticket-Service">
                             <Button variant="default">
                                 <Icons.add className="mr-1" /> {dictionary.newTicket.toUpperCase()}
                             </Button>

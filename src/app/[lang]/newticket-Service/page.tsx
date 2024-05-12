@@ -1,8 +1,11 @@
 import { SiteHeader } from "@/components/site-header";
 import { getDictionary } from "@/lib/get-dictionary";
 import React from "react";
+import Link from "next/link";
 import pt from "../dictionaries/pt.json";
-import { CircleLine } from "./[newticket]/circle";
+import { CircleLine } from "../../../components/ui/circle";
+import Footer from "../../../components/footer";
+import { LandingCard } from "../../../components/landing-card";
 
 export default async function newTicket({
   params: { lang },
@@ -15,7 +18,6 @@ export default async function newTicket({
     title: (pt as { [key: string]: string })[`title${i + 1}`],
     description: (pt as { [key: string]: string })[`description${i + 1}`],
   }));
-
 
   return (
     <>
@@ -39,14 +41,14 @@ export default async function newTicket({
               marginRight: "10px",
             }}
           ></div>
-          <CircleLine />
+          <CircleLine activeCircle={0} />
         </div>
         <div
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginBottom: "20px", 
+            marginBottom: "20px",
           }}
         ></div>
         <div
@@ -59,25 +61,21 @@ export default async function newTicket({
           }}
         >
           {cards.map((card, index) => (
-            <div
-              className="card"
+            <LandingCard
               key={index}
-              style={{
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-                padding: "1rem",
-                backgroundColor: "#fff",
-                color: "#666",
-                maxWidth: "400px",
-              }}
-            >
-              <h3 style={{ fontWeight: "bold", fontSize: "1.2em" }}>
-                {card.title}
-              </h3>
-              <p>{card.description}</p>
-            </div>
+              title={card.title}
+              description={card.description}
+            />
           ))}
         </div>
+        <Footer className="flex justify-end items-center p-4">
+          <Link
+            href="/newticket-Category"
+            className="bg-gray-700 text-white rounded px-2 py-1 cursor-pointer"
+          >
+            {pt.next}
+          </Link>
+        </Footer>
       </main>
     </>
   );

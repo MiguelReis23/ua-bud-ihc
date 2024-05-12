@@ -37,6 +37,8 @@
     "title8": "Helpdesk",
     "description8": " Suporte técnico para apoio presencial ou através de video-chamada.",
     "title9": "Reportar Incidentes",
-    "description9": " Solicitar assistência para um problema de segurança, desempenho ou indisponibilidade."
+    "description9": " Solicitar assistência para um problema de segurança, desempenho ou indisponibilidade.",
+    "next": "Próximo",
+    "previous": "Anterior"
 
 }
