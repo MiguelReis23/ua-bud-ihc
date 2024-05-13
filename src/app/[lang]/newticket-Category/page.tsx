@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import pt from "../dictionaries/pt.json";
 import { CircleLine } from "../../../components/ui/circle";
-import Footer from "../../../components/footer";
+// import Footer from "../../../components/site-footer";
 import { LandingCard } from "../../../components/landing-card";
 
 export default async function newTicket({
@@ -28,7 +28,7 @@ export default async function newTicket({
         </h1>
         <CircleLine activeCircle={1} />
 
-        <Footer className="flex justify-between items-center p-4">
+        {/* <Footer className="flex justify-between items-center p-4">
           <Link
             href="/newticket-Service"
             className="bg-gray-500 text-white rounded px-2 py-1 cursor-pointer"
@@ -42,7 +42,7 @@ export default async function newTicket({
           >
             {pt.next}
           </Link>
-        </Footer>
+        </Footer> */}
       </main>
     </>
   );
