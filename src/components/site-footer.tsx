@@ -49,15 +49,18 @@ export function SiteFooter({ dictionary }: { dictionary: any }) {
           </p>
         </div>
       </section>
-      <section className="border-t border-border/40 container max-w-screen-2xl items-center py-2 flex flex-col">
-        <Image
-          src={"/footer/sponsors.png"}
-          alt={"Project sponsors"}
-          objectFit="cover"
-          quality={70}
-          width={400}
-          height={100}
-        />
+      <section className="border-t border-border/40">
+        <div className="container max-w-screen-2xl items-center py-2 flex flex-col">
+          <Image
+            className="invert dark:filter-none opacity-80"
+            src={"/footer/sponsors.png"}
+            alt={"Project sponsors"}
+            objectFit="cover"
+            quality={70}
+            width={400}
+            height={100}
+          />
+        </div>
       </section>
     </footer>
   );
