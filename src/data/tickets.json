@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "subject": "Request Physical Internet Connection",
+        "priority": "2 - Medium",
+        "date": "04/04/24",
+        "requester": "Kushwaha Chopra",
+        "responsible": "Emidio Costa",
+        "status": "In Progress",
+        "lastMessage": "20 days ago",
+        "details": "Teste"
+    },
+    {
+        "id": 2,
+        "subject": "Teste",
+        "priority": "2 - Medium",
+        "date": "04/04/24",
+        "requester": "Emídio Costo",
+        "responsible": "Kushwaha Chopra",
+        "status": "Closed",
+        "lastMessage": "3 days ago"
+    },
+    {
+        "id": 3,
+        "subject": "Create Course on Moodle",
+        "priority": "",
+        "date": "14/05/24",
+        "requester": "Kushwaha Chopra",
+        "responsible": "",
+        "status": "Open",
+        "lastMessage": "Today"
+    }
+]

@@ -3,13 +3,14 @@ import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 import {ProfileCard} from "@/components/profile-card"
 import { getDictionary } from "@/lib/get-dictionary"
-import { SiteHeader } from "@/components/site-header"
+import { AdminHeader } from "@/components/admin-header"
 
-export default async function ProfilePage(params: {lang: string}) {
+export default async function AdminProfilePage(params: {lang: string}) {
     const dictionary = await getDictionary(params.lang)
+    
     return (
         <>
-            <SiteHeader dictionary={dictionary} />
+            <AdminHeader dictionary={dictionary} />
             <main className="flex flex-col items-center h-screen py-12">
                 <div className="w-full max-w-4xl px-4 md:px-6">
                     <div className="mb-8 text-center">
@@ -17,13 +18,13 @@ export default async function ProfilePage(params: {lang: string}) {
                     </div>
                 </div>
                 <ProfileCard 
-                    avatarSrc="/KC.jpg"
-                    avatarAlt="KC"
-                    avatarFallback="KC"
-                    name="Kushwaha Chopra"
-                    jobTitle="Teacher"
-                    email="Kupra@ua.pt"
-                    department="DETI - 04"
+                    avatarSrc="/EC.jpg"
+                    avatarAlt="EC"
+                    avatarFallback="EC"
+                    name="Emídio Costa"
+                    jobTitle="STIC"
+                    email="EmCosta@ua.pt"
+                    department="STIC - 27"
                     />
             </main>
         </>

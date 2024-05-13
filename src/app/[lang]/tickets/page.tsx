@@ -1,7 +1,7 @@
 import { SiteHeader } from "@/components/site-header";
 import { getDictionary } from "@/lib/get-dictionary"
 import { Icons } from "@/components/icons";
-import TicketsData from "./tickets.json";
+import TicketsData from "@/data/tickets.json";
 import Link from "next/link";
 
 export default async function Tickets({ params: { lang } }: { params: { lang: string } }) {
@@ -17,7 +17,6 @@ export default async function Tickets({ params: { lang } }: { params: { lang: st
   }));
 
   const dictionary = await getDictionary(lang)
-
 
   return (
     <>
@@ -57,7 +56,9 @@ export default async function Tickets({ params: { lang } }: { params: { lang: st
                 </div>
               </div>
               <div className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                {ticketInfo.map((ticket, index) => (
+                {ticketInfo
+                .filter(ticket => ticket.requester === "Kushwaha Chopra")
+                .map((ticket, index) => (
                   <Link href={`/tickets/${ticket.id}`}>
                     <div
                       key={ticket.id}
