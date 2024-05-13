@@ -34,8 +34,8 @@ export function SiteHeader({ dictionary }: { dictionary: any }) {
             <ThemeSwitcher />
             <Link href="/profile">
               <Avatar>
-                <AvatarImage src="https://avatars.githubusercontent.com/u/38387065?v=4" />
-                <AvatarFallback>MV</AvatarFallback>
+                <AvatarImage src="/KC.jpg" />
+                <AvatarFallback>KC</AvatarFallback>
               </Avatar>
             </Link>
           </nav>

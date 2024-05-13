@@ -4,7 +4,7 @@ import { getDictionary } from "@/lib/get-dictionary"
 import { Textarea } from "@/components/ui/textarea"
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import TicketsData from "../tickets.json"
+import TicketsData from "@/data/tickets.json"
 import NotFound from "../../not-found"
 import { Icons } from "@/components/icons"
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select"
@@ -12,7 +12,9 @@ import { ReceivedMessage } from "@/components/received-message"
 import { SentMessage } from "@/components/sent-message"
 
 
-export default function TicketID({params}:{params: {ticketId: string}}) {
+export default async function TicketID({params}:{params: {lang: string, ticketId: string}}) {
+    const dictionary = await getDictionary(params.lang);
+
     const ID = Number(params.ticketId)
     const ticket = TicketsData.find(ticket => ticket.id === ID)
     
@@ -21,6 +23,7 @@ export default function TicketID({params}:{params: {ticketId: string}}) {
     }
   return (
     <>
+    <SiteHeader dictionary={dictionary} />
     <div className="flex h-screen w-full flex-col">
       <header className="flex h-16 items-center border-b border-gray-200 px-4 md:px-6 dark:border-gray-800">
       <Link href="/tickets">
@@ -49,9 +52,9 @@ export default function TicketID({params}:{params: {ticketId: string}}) {
                     <SelectValue placeholder= "Select" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="1">1 - High</SelectItem>
-                    <SelectItem value="2">2 - Medium</SelectItem>
-                    <SelectItem value="3">3 - Low</SelectItem>
+                    <SelectItem value="1 - High">1 - High</SelectItem>
+                    <SelectItem value="2 - Medium">2 - Medium</SelectItem>
+                    <SelectItem value="3 - Low">3 - Low</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -62,9 +65,9 @@ export default function TicketID({params}:{params: {ticketId: string}}) {
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="open">Open</SelectItem>
-                    <SelectItem value="in-progress">In Progress</SelectItem>
-                    <SelectItem value="closed">Closed</SelectItem>
+                    <SelectItem value="Open">Open</SelectItem>
+                    <SelectItem value="In Progress">In Progress</SelectItem>
+                    <SelectItem value="Closed">Closed</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -74,7 +77,7 @@ export default function TicketID({params}:{params: {ticketId: string}}) {
                 <p className="text-gray-500 dark:text-gray-400"><b>Requester:</b></p>
                 <div className="flex items-center space-x-2">
                   <Avatar>
-                    <AvatarImage alt="Avatar" src="https://avatars.githubusercontent.com/u/38387065?v=4" />
+                    <AvatarImage alt="Avatar" src="/KC.jpg"></AvatarImage>
                     <AvatarFallback></AvatarFallback>
                   </Avatar>
                   <p className="text-sm font-medium">{ticket.requester}</p>
@@ -92,7 +95,7 @@ export default function TicketID({params}:{params: {ticketId: string}}) {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Avatar>
-                <AvatarImage alt="Avatar" src="/placeholder-user.jpg" />
+                <AvatarImage alt="Avatar" src="/EC.jpg" />
                 <AvatarFallback>EC</AvatarFallback>
               </Avatar>
               <div>
@@ -107,12 +110,12 @@ export default function TicketID({params}:{params: {ticketId: string}}) {
           <div className="flex flex-col space-y-4 overflow-y-auto">
             <ReceivedMessage message="Hi, I'm sorry to hear you're having trouble. Can you please provide more details about the issue you're facing?" 
             timestamp="May 9, 2024 at 10:35 AM" 
-            avatarSrc="/placeholder-user.jpg" 
+            avatarSrc="/EC.jpg" 
             avatarFallback="EC" />
             <SentMessage message="I'm having trouble with the app. It keeps crashing whenever I try to open it."
             timestamp="May 9, 2024 at 10:37 AM"
-            avatarSrc="https://avatars.githubusercontent.com/u/38387065?v=4"
-            avatarFallback="MV" />
+            avatarSrc="/KC.jpg"
+            avatarFallback="KC" />
           </div>
           <div className="flex items-center space-x-2">
             <Textarea className="flex-1" placeholder="Type your message..." />

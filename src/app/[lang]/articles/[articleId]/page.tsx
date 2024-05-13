@@ -1,5 +1,5 @@
 import NotFound from "../../not-found"
-import ArticleData from "../articles.json"
+import ArticleData from "@/data/articles.json"
 import React from "react"
 
 

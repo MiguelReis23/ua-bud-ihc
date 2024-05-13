@@ -1,10 +1,13 @@
 
+import { AdminHeader } from "@/components/admin-header";
 import { Icons } from "@/components/icons"
-import TicketsData from "./tickets.json"
+import TicketsData from "@/data/tickets.json"
+import { getDictionary } from "@/lib/get-dictionary";
 import Link from 'next/link'
 
 
-export default function AdminTickets() {
+export default async function AdminTickets(params: {lang: string}) {
+    const dictionary = await getDictionary(params.lang)
 
     const ticketInfo = TicketsData.map((ticket, index) => ({
         id: ticket.id,
@@ -14,11 +17,12 @@ export default function AdminTickets() {
         requester: ticket.requester,
         responsible: ticket.responsible,
         status: ticket.status,
-        lastMessage: ticket.lastMessage,
-      }));
+        lastMessage: ticket.lastMessage
+    }));
 
     return (
     <>
+        <AdminHeader dictionary={dictionary} />
         <main className="flex flex-col items-center h-screen py-12">
             <div className="w-full max-w-4xl px-4 md:px-6">
             <div className="mb-8 text-center">
