@@ -22,7 +22,7 @@ export function LandingCard({ title, description}: LandingCardProps) {
   );
 }
 
-export function CardWithIcon({ title, description }: LandingCardProps) {
+export function CardWithIcon({ title, description, icon }: { title: string; description: string; icon: React.ReactNode }) {
   return (
     <Card className="w-full flex flex-row p-4 cursor-pointer hover:shadow-lg dark:hover:shadow-[#FFFFFF25] transition-shadow">
       <div className="flex-grow">
@@ -36,7 +36,7 @@ export function CardWithIcon({ title, description }: LandingCardProps) {
         </CardContent>
       </div>
       <div className="flex-none flex items-center justify-center p-4">
-        <HeartHandshake size={48} />
+        {icon}
       </div>
     </Card>
   );

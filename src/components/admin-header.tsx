@@ -1,16 +1,18 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Separator } from "@/components/ui/separator"
-import { Button } from "@/components/ui/button"
-import { Icons } from '@/components/icons'
-import {SearchBar} from "@/components/searchbar"
-import  Link  from 'next/link'
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/icons";
+import { SearchBar } from "@/components/searchbar";
+import { ThemeSwitcher } from "@/components/theme-switcher";
+import Link from "next/link";
+import { LocaleSwitcher } from "./locale-switcher";
 
 export function AdminHeader({ dictionary } : { dictionary: any }) {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" >
             <div className="container flex max-w-screen-2xl items-center py-2">
                 <div className="flex flex-1 items-center justify-between space-x-2 md:jusitfy-end">
-                    <Link href="/admin">
+                    <Link href="/${dictionary.locale}/admin">
                         <Icons.logo className="h-full w-auto mt-1" />
                     </Link>
                     <SearchBar placeholder={dictionary.search}/>

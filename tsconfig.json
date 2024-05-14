@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/update-tickets.js", "src/app/api/getDictionary.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/update-tickets.js", "src/app/api/get-dictionary/route.js"],
   "exclude": ["node_modules"]
 }

@@ -46,6 +46,16 @@ export default function TicketID({ params }: { params: { lang: string, ticketId:
         }
     }, [priority, status]);
 
+	// useEffect(() => {
+	// 	const fetchDictionary = async () => {
+	// 	  const response = await fetch(`/api/get-dictionary?lang=${params.lang}`);
+	// 	  const data = await response.json();
+	// 	  setDictionary(data);
+	// 	} 
+	// 	fetchDictionary();
+	// }, [params.lang]);
+
+
 	
 	function handleUpdate() {
 		const updatedTicket = {
@@ -67,6 +77,8 @@ export default function TicketID({ params }: { params: { lang: string, ticketId:
 
 	return (
 		<>
+
+
 		<div className="flex h-screen w-full flex-col">
 			<header className="flex h-16 items-center border-b px-4 md:px-6">
 				<Link href="/admin/tickets">
