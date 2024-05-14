@@ -30,7 +30,7 @@ export default async function AdminTickets(params: {lang: string}) {
             </div>
             <div className="overflow-hidden rounded-lg shadow-lg">
                 <div className="w-full">
-                <div className="grid grid-cols-8 gap-4">
+                <div className="grid grid-cols-8 gap-4 bg-gray-200 dark:bg-gray-800">
                     <div className="px-4 py-3 text-left text-sm font-medium">ID</div>
                     <div className="px-4 py-3 text-left text-sm font-medium">Subject</div>
                     <div className="px-4 py-3 text-left text-sm font-medium">Priority

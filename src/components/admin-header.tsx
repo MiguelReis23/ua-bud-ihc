@@ -28,6 +28,8 @@ export function AdminHeader({ dictionary } : { dictionary: any }) {
                             </Button>
                         </Link>
                         <Separator orientation="vertical" className="h-8" />
+                        <ThemeSwitcher />
+                        <LocaleSwitcher />
                         <Link href="/admin/profile">
                             <Avatar>
                                 <AvatarImage src="/EC.jpg" />
