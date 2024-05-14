@@ -12,8 +12,9 @@ import {
   Network,
   UserRound,
   Headset,
-  Wrench
+  Wrench,
 } from "lucide-react";
+import { Separator } from "@radix-ui/react-separator";
 
 export default async function Home({
   params: { lang },
@@ -31,63 +32,77 @@ export default async function Home({
             New Ticket
           </h1>
         </div>
-        <div>
-
-
+        <div className="flex justify-center space-x-20">
           <div className="flex flex-col items-center">
-  <div className="w-10 h-10 rounded-full flex items-center justify-center bg-black text-white dark:bg-white dark:text-black">
-    <h1 className="text-xl">1</h1>
-  </div>
-  <span className="mt-1 font-medium">Service</span>
-</div>
-
-
+            <div className="w-10 h-10 rounded-full flex items-center justify-center bg-black text-white dark:bg-white dark:text-black">
+              <h1 className="text-xl">1</h1>
+            </div>
+            <span className="mt-1 font-medium">Service</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-black dark:bg-black dark:text-white border-2 border-black dark:border-white">
+              <h1 className="text-xl">2</h1>
+            </div>
+            <span className="mt-1 font-medium">Category</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-black dark:bg-black dark:text-white border-2 border-black dark:border-white">
+              <h1 className="text-xl">3</h1>
+            </div>
+            <span className="mt-1 font-medium">Details</span>
+          </div>
         </div>
         <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <CardWithIcon
-              title="Correio Eletrónico"
-              description="Pataforma de alojamento de conteúdos web para projetos, parcerias, UCs e páginas pessoais."
+              title="Email"
+              description="Web content hosting platform for projects, partnerships, UCs and personal pages."
               icon={<AtSign size={48} />}
             />
             <CardWithIcon
-              title="Alojamento Web"
-              description="Pataforma de alojamento de conteúdos web para projetos, parcerias, UCs e páginas pessoais."
+              title="Web Hosting"
+              description="Web content hosting platform for projects, partnerships, UCs and personal pages."
               icon={<Globe size={48} />}
             />
             <CardWithIcon
-              title="Audiovisuais"
-              description="Instalação de equipamentos, gestão da plataforma Educast e apoio à realização de produções audiovisuais."
+              title="Audiovisual"
+              description="Installation of equipment, management of the Educast platform and support for audiovisual productions."
               icon={<Video size={48} />}
             />
+            <Link href={`/${lang}/new-ticket-elearning-category`}>
+              <CardWithIcon
+                title="E-Learning"
+                description="Manage areas and users of the support platform for distance learning."
+                icon={<GraduationCap size={48} />}
+              />
+            </Link>
             <CardWithIcon
-              title="E-Learning"
-              description="Gerir áreas e utilizadores da plataforma de apoio à aprendizagem orientada para o ensino à distância."
-              icon={<GraduationCap size={48} />}
-            />
-            <CardWithIcon
-              title="Inquéritos Online"
-              description="Serviço para criar formulários e inquéritos para recolha de dados no âmbito de projetos."
+              title="Online Surveys"
+              description="Service to create forms and surveys for data collection within the scope of projects."
               icon={<FileQuestion size={48} />}
             />
-            <CardWithIcon
-              title="Redes de Comunicações"
-              description="Serviço de comunicações de dados departamental, acesso à internet, através de rede cablada e wireless."
-              icon={<Network size={48} />}
-            />
-            <CardWithIcon
-              title="Gestão de Utilizadores"
-              description="Gestão da identidade eletrónica dos utilizadores da comunidade académica: dados pessoais,"
-              icon={<UserRound size={48} />}
-            />
+            <Link href={`/${lang}/new-ticket-network-category`}>
+              <CardWithIcon
+                title="Communication Networks"
+                description="Departmental data communications service, internet access, through wired and wireless network."
+                icon={<Network size={48} />}
+              />
+            </Link>
+            <Link href={`/${lang}/new-ticket-users-category`}>
+              <CardWithIcon
+                title="User Management"
+                description="Management of the electronic identity of the academic community users: personal data,"
+                icon={<UserRound size={48} />}
+              />
+            </Link>
             <CardWithIcon
               title="Helpdesk"
-              description="Suporte técnico para apoio presencial ou através de video-chamada."
+              description="Technical support for face-to-face or video-call assistance."
               icon={<Headset size={48} />}
             />
             <CardWithIcon
-              title="Reportar Incidentes"
-              description="Solicitar assistência para um problema de segurança, desempenho ou indisponibilidade."
+              title="Report an Incident"
+              description="Request assistance for a security, performance, or availability issue."
               icon={<Wrench size={48} />}
             />
           </div>
