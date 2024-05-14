@@ -5,7 +5,7 @@ import Link from "next/link";
 import pt from "../dictionaries/pt.json";
 import { CircleLine } from "../../../components/ui/circle";
 // import Footer from "../../../components/site-footer";
-import { LandingCard } from "../../../components/landing-card";
+import { LandingCard } from "../../../components/custom-card";
 
 export default async function newTicket({
   params: { lang },

@@ -29,20 +29,20 @@ interface ProfileCardProps {
           </Avatar>
           <div className="space-y-1">
             <div className="text-xl font-medium">{name}</div>
-            <div className="text-gray-500 dark:text-gray-400">{jobTitle}</div>
+            <div className="font-light">{jobTitle}</div>
           </div>
         </div>
         <div className="grid gap-2">
           <div className="flex items-center justify-between">
-            <span className="text-gray-500 dark:text-gray-400">Title:</span>
+            <span className="font-light">Title:</span>
             <span>{jobTitle}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-gray-500 dark:text-gray-400">Email:</span>
+            <span className="font-light">Email:</span>
             <span>{email}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-gray-500 dark:text-gray-400">Department:</span>
+            <span className="font-light">Department:</span>
             <span>{department}</span>
           </div>
         </div>

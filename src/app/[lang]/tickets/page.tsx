@@ -21,41 +21,41 @@ export default async function Tickets({ params: { lang } }: { params: { lang: st
   return (
     <>
       <SiteHeader dictionary={dictionary} />
-      <main className="flex flex-col items-center h-screen py-12">
-        <div className="w-full max-w-4xl px-4 md:px-6">
+      <main className="flex flex-col items-center h-screen py-12 container">
+        <div className="w-full px-4 md:px-6">
           <div className="mb-8 text-center">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
+            <h1 className="text-4xl font-bold">
               MyTickets
             </h1>
           </div>
           <div className="overflow-hidden rounded-lg shadow-lg">
             <div className="w-full">
               <div className="grid grid-cols-7 gap-4 bg-gray-200 dark:bg-gray-800">
-                <div className="px-4 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-300">
+                <div className="px-4 py-3 text-left text-sm font-medium">
                   Subject
                 </div>
-                <div className="px-4 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-300">
+                <div className="px-4 py-3 text-left text-sm font-medium ">
                   Priority
                   <Icons.arrowupdown className="w-6 h-4 inline-block" />
                 </div>
-                <div className="px-4 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-300">
+                <div className="px-4 py-3 text-left text-sm font-medium">
                   Date
                   <Icons.arrowupdown className="w-6 h-4 inline-block" />
                 </div>
-                <div className="px-4 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-300">
+                <div className="px-4 py-3 text-left text-sm font-medium">
                   Requester
                 </div>
-                <div className="px-4 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-300">
+                <div className="px-4 py-3 text-left text-sm font-medium">
                   Responsible
                 </div>
-                <div className="px-4 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-300">
+                <div className="px-4 py-3 text-left text-sm font-medium">
                   Status
                 </div>
-                <div className="px-4 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-300">
+                <div className="px-4 py-3 text-left text-sm font-medium">
                   Last Message
                 </div>
               </div>
-              <div className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+              <div className="divide-y ">
                 {ticketInfo
                 .filter(ticket => ticket.requester === "Kushwaha Chopra")
                 .map((ticket, index) => (

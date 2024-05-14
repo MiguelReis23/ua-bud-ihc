@@ -1,5 +1,5 @@
 import { LandingCarousel } from "@/components/landing-carousel"
-import { LandingCard } from "@/components/landing-card"
+import { LandingCard } from "@/components/custom-card"
 import { AdminHeader } from "@/components/admin-header"
 import { getDictionary } from "@/lib/get-dictionary"
 import Link from "next/link"

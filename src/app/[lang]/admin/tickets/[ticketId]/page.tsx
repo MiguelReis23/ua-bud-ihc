@@ -10,8 +10,10 @@ import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@
 import { ReceivedMessage } from "@/components/received-message"
 import { SentMessage } from "@/components/sent-message"
 import { useState, useEffect } from 'react'
+import { AdminHeader } from "@/components/admin-header"
 
-export default function TicketID({ params }: { params: { ticketId: string } }) {
+export default function TicketID({ params }: { params: { lang: string, ticketId: string } }) {
+
 	const [ticket, setTicket] = useState({});
 	const [priority, setPriority] = useState();
 	const [status, setStatus] = useState();
@@ -19,6 +21,7 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
 	const [initialPriority, setInitialPriority] = useState();
 	const [initialStatus, setInitialStatus] = useState();
 	const [hasChanges, setHasChanges] = useState(false);
+	const [dictionary, setDictionary] = useState({});
 
 	useEffect(() => {
 		const fetchTickets = async () => {
@@ -43,6 +46,7 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
         }
     }, [priority, status]);
 
+	
 	function handleUpdate() {
 		const updatedTicket = {
 			id: ticket.id,
@@ -62,8 +66,9 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
 	}
 
 	return (
+		<>
 		<div className="flex h-screen w-full flex-col">
-			<header className="flex h-16 items-center border-b border-gray-200 px-4 md:px-6 dark:border-gray-800">
+			<header className="flex h-16 items-center border-b px-4 md:px-6">
 				<Link href="/admin/tickets">
 					<Button variant="default">
 						<Icons.back className="mr-1" /> Back
@@ -72,19 +77,19 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
 				<div className="flex-1 text-center text-sm font-medium">Ticket #{ticket.id} </div>
 			</header>
 			<main className="flex-1 grid grid-cols-3 gap-6 p-4 md:p-6">
-				<div className="col-span-2 space-y-4 border-r border-gray-200 pr-6 dark:border-gray-800">
+				<div className="col-span-2 space-y-4 border-r pr-6">
 					<div className="space-y-2">
 						<div className="flex justify-between">
 							<div>
-								<p className="text-gray-500 dark:text-gray-400"><b>Subject:</b> {ticket.subject}</p>
+								<p className="font-medium"><b>Subject:</b> {ticket.subject}</p>
 							</div>
 							<div className="text-right">
-								<p className="text-gray-500 dark:text-gray-400"><b>Date:</b>{ticket.date}</p>
+								<p className="font-medium"><b>Date:</b>{ticket.date}</p>
 							</div>
 						</div>
 						<div className="flex justify-between">
 							<div className="flex items-center space-x-3">
-								<p className="text-gray-500 dark:text-gray-400"><b>Priority:</b></p>
+								<p className="font-medium"><b>Priority:</b></p>
 								<Select onValueChange={(value) => setPriority(value)}>
 									<SelectTrigger className="w-30">
 										<SelectValue placeholder={ticket.priority} />
@@ -97,7 +102,7 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
 								</Select>
 							</div>
 							<div className="flex items-center space-x-2">
-								<p className="text-gray-500 dark:text-gray-400"><b>Status:</b></p>
+								<p className="font-medium"><b>Status:</b></p>
 								<Select onValueChange={(value) => setStatus(value)}>
 									<SelectTrigger className="w-30">
 										<SelectValue placeholder={ticket.status} />
@@ -112,11 +117,11 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
 						</div>
 						<div className="flex justify-between">
 							<div className="flex items-center space-x-2">
-								<p className="text-gray-500 dark:text-gray-400"><b>Requester:</b></p>
+								<p className="font-medium"><b>Requester:</b></p>
 								<div className="flex items-center space-x-2">
 									<Avatar>
-										<AvatarImage alt="Avatar" src="https://avatars.githubusercontent.com/u/38387065?v=4" />
-										<AvatarFallback></AvatarFallback>
+										<AvatarImage alt="Avatar" src="/KC.jpg" />
+										<AvatarFallback>KC</AvatarFallback>
 									</Avatar>
 									<p className="text-sm font-medium">{ticket.requester}</p>
 								</div>
@@ -125,7 +130,7 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
 					</div>
 					<div className="space-y-2">
 						<div className="space-y-2">
-							<div className="h-[300px] overflow-auto border border-gray-200 p-2 dark:border-gray-800">
+							<div className="h-[300px] overflow-auto border p-2">
 								{ticket.details}
 							</div>
 						</div>
@@ -133,16 +138,15 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
 					<div className="flex items-center justify-between">
 						<div className="flex items-center space-x-2">
 							<Avatar>
-								<AvatarImage alt="Avatar" src="/placeholder-user.jpg" />
+								<AvatarImage alt="Avatar" src="/EC.jpg" />
 								<AvatarFallback>EC</AvatarFallback>
 							</Avatar>
 							<div>
 								<p className="text-sm font-medium">{ticket.responsible}</p>
-								<p className="text-xs text-gray-500 dark:text-gray-400">Ticket Handler</p>
+								<p className="text-xs font-medium">Ticket Handler</p>
 							</div>
 						</div>
 						<div className="space-x-2">
-							<Button variant="outline">Assign to myself</Button>
 							<Button variant= "default" onClick={handleUpdate} disabled={!hasChanges}>Update</Button>
 						</div>
 					</div>
@@ -152,12 +156,12 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
 					<div className="flex flex-col space-y-4 overflow-y-auto">
 						<SentMessage message="Hi, I'm sorry to hear you're having trouble. Can you please provide more details about the issue you're facing?"
 							timestamp="May 9, 2024 at 10:35 AM"
-							avatarSrc="/placeholder-user.jpg"
+							avatarSrc="/EC.jpg"
 							avatarFallback="EC" />
 						<ReceivedMessage message="I'm having trouble with the app. It keeps crashing whenever I try to open it."
 							timestamp="May 9, 2024 at 10:37 AM"
-							avatarSrc="https://avatars.githubusercontent.com/u/38387065?v=4"
-							avatarFallback="MV" />
+							avatarSrc="/KC.jpg"
+							avatarFallback="KC" />
 					</div>
 					<div className="flex items-center space-x-2">
 						<Textarea className="flex-1" placeholder="Type your message..." />
@@ -166,5 +170,6 @@ export default function TicketID({ params }: { params: { ticketId: string } }) {
 				</div>
 			</main>
 		</div>
+		</>
 	)
 }

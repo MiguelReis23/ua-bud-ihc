@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function SiteFooter({ dictionary }: { dictionary: any }) {
   return (
-    <footer className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-4">
+    <footer className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-4 b-0">
       <section className="container max-w-screen-2xl items-center py-2 flex flex-col md:flex-row items-center justify-between mb-4">
         <div className="flex flex-col space-y-1 md:space-y-0 md:flex-row md:space-x-4">
           <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">

@@ -19,13 +19,13 @@ export default async function TicketID({params}:{params: {lang: string, ticketId
     const ticket = TicketsData.find(ticket => ticket.id === ID)
     
     if (!ticket) {
-        return <NotFound />
+        return <NotFound lang={params.lang}/>
     }
   return (
     <>
     <SiteHeader dictionary={dictionary} />
     <div className="flex h-screen w-full flex-col">
-      <header className="flex h-16 items-center border-b border-gray-200 px-4 md:px-6 dark:border-gray-800">
+      <header className="flex h-16 items-center border-b px-4 md:px-6">
       <Link href="/tickets">
         <Button variant="default">
           <Icons.back className="mr-1" /> Back
@@ -34,19 +34,19 @@ export default async function TicketID({params}:{params: {lang: string, ticketId
         <div className="flex-1 text-center text-sm font-medium">Ticket #{ticket.id} </div>
       </header>
       <main className="flex-1 grid grid-cols-3 gap-6 p-4 md:p-6">
-        <div className="col-span-2 space-y-4 border-r border-gray-200 pr-6 dark:border-gray-800">
+        <div className="col-span-2 space-y-4 border-r pr-6">
           <div className="space-y-2">
             <div className="flex justify-between">
               <div>
-                <p className="text-gray-500 dark:text-gray-400"><b>Subject:</b> {ticket.subject}</p>
+                <p className="font-medium"><b>Subject:</b> {ticket.subject}</p>
               </div>
               <div className="text-right">
-                <p className="text-gray-500 dark:text-gray-400"><b>Date:</b>{ticket.date}</p>
+                <p className="font-medium"><b>Date:</b>{ticket.date}</p>
               </div>
             </div>
             <div className="flex justify-between">
               <div className="flex items-center space-x-3">
-                <p className="text-gray-500 dark:text-gray-400"><b>Priority:</b></p>
+                <p className="font-medium"><b>Priority:</b></p>
                 <Select value={ticket.priority} disabled>
                   <SelectTrigger className="w-30">
                     <SelectValue placeholder= "Select" />
@@ -59,7 +59,7 @@ export default async function TicketID({params}:{params: {lang: string, ticketId
                 </Select>
               </div>
               <div className="flex items-center space-x-2">
-                <p className="text-gray-500 dark:text-gray-400"><b>Status:</b></p>
+                <p className="font-medium"><b>Status:</b></p>
                 <Select value={ticket.status} disabled>
                   <SelectTrigger className="w-30">
                     <SelectValue placeholder="Select" />
@@ -74,7 +74,7 @@ export default async function TicketID({params}:{params: {lang: string, ticketId
             </div>
             <div className="flex justify-between">
               <div className="flex items-center space-x-2">
-                <p className="text-gray-500 dark:text-gray-400"><b>Requester:</b></p>
+                <p className="font-medium"><b>Requester:</b></p>
                 <div className="flex items-center space-x-2">
                   <Avatar>
                     <AvatarImage alt="Avatar" src="/KC.jpg"></AvatarImage>
@@ -100,7 +100,7 @@ export default async function TicketID({params}:{params: {lang: string, ticketId
               </Avatar>
               <div>
                 <p className="text-sm font-medium">{ticket.responsible}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Ticket Handler</p>
+                <p className="text-xs">Ticket Handler</p>
               </div>
             </div>
           </div>

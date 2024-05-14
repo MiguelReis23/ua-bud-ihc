@@ -9,10 +9,12 @@ export default async function NotFound(params: {lang: string}) {
   return (
     <>
       <SiteHeader dictionary={dictionary} />
-      <div>
+      <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
         <h2>Not Found</h2>
-        <p>Could not find requested resource</p>
-        <Link href="/">Return Home</Link>
+        <p>Could not find article</p>
+        <Link className= "block mt-4 text-blue-700 hover:text-blue-500" href="/">
+          {`Go back to home >`}
+        </Link>
       </div>
     </>
   )

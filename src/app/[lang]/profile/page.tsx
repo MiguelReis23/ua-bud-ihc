@@ -13,7 +13,7 @@ export default async function ProfilePage(params: {lang: string}) {
             <main className="flex flex-col items-center h-screen py-12">
                 <div className="w-full max-w-4xl px-4 md:px-6">
                     <div className="mb-8 text-center">
-                        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">Profile</h1>
+                        <h1 className="text-4xl font-bold">Profile</h1>
                     </div>
                 </div>
                 <ProfileCard 

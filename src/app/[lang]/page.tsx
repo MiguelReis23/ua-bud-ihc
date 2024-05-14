@@ -1,7 +1,7 @@
 import { LandingCarousel } from "@/components/landing-carousel";
 import { SiteHeader } from "@/components/site-header";
 import { getDictionary } from "@/lib/get-dictionary";
-import { LandingCard } from "@/components/landing-card";
+import { LandingCard } from "@/components/custom-card";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -15,7 +15,7 @@ export default async function Home({
   return (
     <>
       <SiteHeader dictionary={dictionary} />
-      <main className="">
+      <main>
         <LandingCarousel dictionary={dictionary} />
         <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8">
