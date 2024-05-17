@@ -3,7 +3,7 @@ import { AdminHeader } from "@/components/admin-header";
 import { Icons } from "@/components/icons"
 import TicketsData from "@/data/tickets.json"
 import { getDictionary } from "@/lib/get-dictionary";
-import Link from 'next/link'
+import Link from 'next/link';
 
 
 export default async function AdminTickets(params: {lang: string}) {
