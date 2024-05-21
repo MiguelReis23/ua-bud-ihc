@@ -6,7 +6,7 @@
         "date": "04/05/24",
         "requester": "Kushwaha Chopra",
         "responsible": "Emidio Costa",
-        "status": "Closed",
+        "status": "Open",
         "lastMessage": "10 days ago",
         "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, vestibulum ligula at, malesuada nunc. Suspendisse lacinia, nisl nec maximus ultricies, nunc turpis ultricies nunc, nec ultricies nunc turpis nec turpis."
     },
@@ -17,7 +17,7 @@
         "date": "09/05/24",
         "requester": "Kushwaha Chopra",
         "responsible": "Emidio Costa",
-        "status": "Closed",
+        "status": "In progress",
         "lastMessage": "5 days ago"
     },
     {
@@ -99,5 +99,27 @@
         "responsible": "Andreia Santos",
         "status": "In Progress",
         "lastMessage": "Today"
+    },
+    {
+        "id": 11,
+        "subject": "Delegate project email account",
+        "priority": "",
+        "date": "5/21/2024",
+        "requester": "Kushwaha Chopra",
+        "responsible": "Emidio Costa",
+        "status": "Open",
+        "lastMessage": "Today",
+        "details": "Who is this ticket for: \nProject / Event email account: \nFiles: \nObservations: "
+    },
+    {
+        "id": 12,
+        "subject": "Delegate project email account",
+        "priority": "",
+        "date": "5/21/2024",
+        "requester": "Kushwaha Chopra",
+        "responsible": "Emidio Costa",
+        "status": "Open",
+        "lastMessage": "Today",
+        "details": "Who is this ticket for: \nProject / Event email account: \nFiles: \nObservations: "
     }
 ]

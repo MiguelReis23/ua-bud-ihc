@@ -1,4 +1,7 @@
 {
   "locale": "es",
-  "test": "testiandu"
+  "test": "testiandu",
+  "ManageTickets": "Gestionar Tickets",
+  "newTicket": "Nuevo Ticket",
+  "myTickets": "Mis Tickets"
 }

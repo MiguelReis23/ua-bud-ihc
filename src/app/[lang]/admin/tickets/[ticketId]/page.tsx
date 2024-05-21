@@ -19,7 +19,6 @@ import { useState, useEffect } from "react";
 import { AdminHeader } from "@/components/admin-header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Toast } from "@/components/ui/toast";
 
 export default function TicketID({
   params,
@@ -81,6 +80,7 @@ export default function TicketID({
       },
       body: JSON.stringify(updatedTicket),
     });
+    setTicket(updatedTicket);
 
     setHasChanges(false);
   }
@@ -190,7 +190,7 @@ export default function TicketID({
                       <p className="text-xs font-medium">Ticket Handler</p>
                     </div>
                   </div>
-                  <ToastContainer  style={{marginTop: '50px'}}/>
+                  <ToastContainer style={{ marginTop: "50px" }} />
                   <div className="space-x-2">
                     <Button
                       variant="default"

@@ -167,13 +167,15 @@ export default function Home({
                     </div>
                   </section>
                   <section className="col-span-2 flex justify-end">
-                    <Button
-                      className="w-full md:w-auto"
-                      type="submit"
-                      onClick={handleSubmit}
-                    >
-                      Submit
-                    </Button>
+                    <Link href="/submit">
+                      <Button
+                        className="w-full md:w-auto"
+                        type="submit"
+                        onClick={handleSubmit}
+                      >
+                        Submit
+                      </Button>
+                    </Link>
                   </section>
                 </form>
               </div>
