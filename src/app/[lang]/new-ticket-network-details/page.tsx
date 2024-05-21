@@ -136,7 +136,7 @@ export default function Home({
                       />
                     </div>
                     <div className="mb-4">
-                      <Label className="text-xl font-medium " htmlFor="files">
+                      <Label className="text-xl font-medium ">
                         Files:
                       </Label>
                       <div className="border-dashed border-2 border-gray-300 rounded-md p-6 text-center">

@@ -16,11 +16,7 @@ import {
 } from "lucide-react";
 import { Separator } from "@radix-ui/react-separator";
 
-export default async function Home({
-  params: { lang },
-}: {
-  params: { lang: string };
-}) {
+export default async function Home({ params: { lang }, }: { params: { lang: string }; }) {
   const dictionary = await getDictionary(lang);
 
   return (
@@ -54,11 +50,13 @@ export default async function Home({
         </div>
         <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Link href={`/${lang}/new-ticket-users-category`}>
             <CardWithIcon
               title="Email"
               description="Web content hosting platform for projects, partnerships, UCs and personal pages."
               icon={<AtSign size={48} />}
             />
+            </Link>
             <CardWithIcon
               title="Web Hosting"
               description="Web content hosting platform for projects, partnerships, UCs and personal pages."
@@ -88,13 +86,11 @@ export default async function Home({
                 icon={<Network size={48} />}
               />
             </Link>
-            <Link href={`/${lang}/new-ticket-users-category`}>
               <CardWithIcon
                 title="User Management"
-                description="Management of the electronic identity of the academic community users: personal data,"
+                description="Management of the electronic identity of the academic community users: personal data"
                 icon={<UserRound size={48} />}
               />
-            </Link>
             <CardWithIcon
               title="Helpdesk"
               description="Technical support for face-to-face or video-call assistance."

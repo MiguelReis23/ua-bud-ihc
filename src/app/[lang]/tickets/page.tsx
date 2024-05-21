@@ -25,34 +25,34 @@ export default async function Tickets({ params: { lang } }: { params: { lang: st
         <div className="w-full px-4 md:px-6">
           <div className="mb-8 text-center">
             <h1 className="text-4xl font-bold">
-              MyTickets
+            {dictionary.myTickets}
             </h1>
           </div>
           <div className="overflow-hidden rounded-lg shadow-lg">
             <div className="w-full">
               <div className="grid grid-cols-7 gap-4 bg-gray-200 dark:bg-gray-800">
                 <div className="px-4 py-3 text-left text-sm font-medium">
-                  Subject
+                {dictionary.ticketSubject}
                 </div>
                 <div className="px-4 py-3 text-left text-sm font-medium ">
-                  Priority
+                {dictionary.ticketPriority}
                   <Icons.arrowupdown className="w-6 h-4 inline-block" />
                 </div>
                 <div className="px-4 py-3 text-left text-sm font-medium">
-                  Date
+                {dictionary.ticketDate}
                   <Icons.arrowupdown className="w-6 h-4 inline-block" />
                 </div>
                 <div className="px-4 py-3 text-left text-sm font-medium">
-                  Requester
+                {dictionary.ticketRequester}
                 </div>
                 <div className="px-4 py-3 text-left text-sm font-medium">
-                  Responsible
+                {dictionary.ticketResponsible}
                 </div>
                 <div className="px-4 py-3 text-left text-sm font-medium">
-                  Status
+                {dictionary.ticketStatus}
                 </div>
                 <div className="px-4 py-3 text-left text-sm font-medium">
-                  Last Message
+                {dictionary.ticketLastMessage}
                 </div>
               </div>
               <div className="divide-y ">

@@ -19,8 +19,9 @@ export default async function TicketID({params}:{params: {lang:string, articleId
         <div className="max-w-2xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <article className="prose prose-gray dark:prose-invert">
             <h1 className="text-4xl font-bold tracking-tight">{articleID.title}</h1>
-            <p className="font-light">By Luis Gouveia | May 3, 2013</p>
-            <p className="font-medium ">
+            <p className="font-light text-gray-500">{dictionary.articleSubtitle}</p>
+            <br/>
+            <p className="font-light ">
                 {articleID.description}
             </p>
         </article>

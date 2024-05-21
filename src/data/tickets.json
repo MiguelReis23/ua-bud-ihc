@@ -2,11 +2,11 @@
     {
         "id": 1,
         "subject": "HelpDesk",
-        "priority": "2 - Medium",
+        "priority": "1 - High",
         "date": "04/05/24",
         "requester": "Kushwaha Chopra",
         "responsible": "Emidio Costa",
-        "status": "Open",
+        "status": "In Progress",
         "lastMessage": "10 days ago",
         "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, vestibulum ligula at, malesuada nunc. Suspendisse lacinia, nisl nec maximus ultricies, nunc turpis ultricies nunc, nec ultricies nunc turpis nec turpis."
     },
@@ -17,7 +17,7 @@
         "date": "09/05/24",
         "requester": "Kushwaha Chopra",
         "responsible": "Emidio Costa",
-        "status": "In progress",
+        "status": "In Progress",
         "lastMessage": "5 days ago"
     },
     {
@@ -67,7 +67,7 @@
         "date": "13/05/24",
         "requester": "Sofia Carvalho",
         "responsible": "Mariana Ferreira",
-        "status": "In progress",
+        "status": "In Progress",
         "lastMessage": "1 day ago"
     },
     {
@@ -121,5 +121,27 @@
         "status": "Open",
         "lastMessage": "Today",
         "details": "Who is this ticket for: \nProject / Event email account: \nFiles: \nObservations: "
+    },
+    {
+        "id": 13,
+        "subject": "Delegate project email account",
+        "priority": "",
+        "date": "5/21/2024",
+        "requester": "Kushwaha Chopra",
+        "responsible": "Emidio Costa",
+        "status": "Open",
+        "lastMessage": "Today",
+        "details": "Who is this ticket for: dasdasd\nProject / Event email account: asdasdsa\nFiles: \nObservations: dasdasd"
+    },
+    {
+        "id": 14,
+        "subject": "Delegate project email account",
+        "priority": "",
+        "date": "5/21/2024",
+        "requester": "Kushwaha Chopra",
+        "responsible": "Emidio Costa",
+        "status": "Open",
+        "lastMessage": "Today",
+        "details": "Who is this ticket for: sadasd\nProject / Event email account: asdasd\nFiles: \nObservations: sdassdszd"
     }
 ]

@@ -79,10 +79,31 @@ export default function TicketID({
         "Content-Type": "application/json",
       },
       body: JSON.stringify(updatedTicket),
-    });
-    setTicket(updatedTicket);
-
+    }).then(() => {
     setHasChanges(false);
+    setInitialPriority(priority);
+    setInitialStatus(status);
+    });
+  }
+
+  function getPriority() {
+    if (ticket.priority === "1 - High") {
+      return dictionary.ticketHighPriority;
+    } else if (ticket.priority === "2 - Medium") {
+      return dictionary.ticketMediumPriority;
+    } else if (ticket.priority === "3 - Low") {
+      return dictionary.ticketLowPriority;
+    }
+  }
+
+  function getStatus() {
+    if (ticket.status === "Open") {
+      return dictionary.ticketStatusOpen;
+    } else if (ticket.status === "In progress") {
+      return dictionary.ticketStatusInProgress;
+    } else if (ticket.status === "Closed") {
+      return dictionary.ticketStatusClosed;
+    }
   }
 
   return (
@@ -96,7 +117,7 @@ export default function TicketID({
             <header className="flex h-16 items-center border-b px-4 md:px-6">
               <Link href="/admin/tickets">
                 <Button variant="default">
-                  <Icons.back className="mr-1" /> Back
+                  <Icons.back className="mr-1" /> {dictionary.back}
                 </Button>
               </Link>
               <div className="flex-1 text-center text-sm font-medium">
@@ -109,12 +130,12 @@ export default function TicketID({
                   <div className="flex justify-between">
                     <div>
                       <p className="font-medium">
-                        <b>Subject:</b> {ticket.subject}
+                        <b>{dictionary.ticketSubject}:</b> {ticket.subject}
                       </p>
                     </div>
                     <div className="text-right">
                       <p className="font-medium">
-                        <b>Date:</b>
+                        <b>{dictionary.ticketDate}:</b>
                         {ticket.date}
                       </p>
                     </div>
@@ -122,16 +143,16 @@ export default function TicketID({
                   <div className="flex justify-between">
                     <div className="flex items-center space-x-3">
                       <p className="font-medium">
-                        <b>Priority:</b>
+                        <b>{dictionary.ticketPriority}:</b>
                       </p>
                       <Select onValueChange={(value) => setPriority(value)}>
                         <SelectTrigger className="w-30">
-                          <SelectValue placeholder={ticket.priority} />
+                          <SelectValue placeholder={getPriority()} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="1 - High">1 - High</SelectItem>
-                          <SelectItem value="2 - Medium">2 - Medium</SelectItem>
-                          <SelectItem value="3 - Low">3 - Low</SelectItem>
+                          <SelectItem value="1 - High">{dictionary.ticketHighPriority}</SelectItem>
+                          <SelectItem value="2 - Medium">{dictionary.ticketMediumPriority}</SelectItem>
+                          <SelectItem value="3 - Low">{dictionary.ticketLowPriority}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -141,14 +162,14 @@ export default function TicketID({
                       </p>
                       <Select onValueChange={(value) => setStatus(value)}>
                         <SelectTrigger className="w-30">
-                          <SelectValue placeholder={ticket.status} />
+                          <SelectValue placeholder= {getStatus()} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="Open">Open</SelectItem>
+                          <SelectItem value="Open">{dictionary.ticketStatusOpen}</SelectItem>
                           <SelectItem value="In progress">
-                            In Progress
+                            {dictionary.ticketStatusInProgress}
                           </SelectItem>
-                          <SelectItem value="Closed">Closed</SelectItem>
+                          <SelectItem value="Closed">{dictionary.ticketStatusClosed}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -156,7 +177,7 @@ export default function TicketID({
                   <div className="flex justify-between">
                     <div className="flex items-center space-x-2">
                       <p className="font-medium">
-                        <b>Requester:</b>
+                        <b>{dictionary.ticketRequester}:</b>
                       </p>
                       <div className="flex items-center space-x-2">
                         <Avatar>
@@ -187,7 +208,7 @@ export default function TicketID({
                       <p className="text-sm font-medium">
                         {ticket.responsible}
                       </p>
-                      <p className="text-xs font-medium">Ticket Handler</p>
+                      <p className="text-xs font-medium">{dictionary.ticketHandler}</p>
                     </div>
                   </div>
                   <ToastContainer style={{ marginTop: "50px" }} />
@@ -200,13 +221,13 @@ export default function TicketID({
                       }}
                       disabled={!hasChanges}
                     >
-                      Update
+                      {dictionary.ticketUpdate}
                     </Button>
                   </div>
                 </div>
               </div>
               <div className="space-y-4">
-                <h2 className="text-lg font-semibold">Conversation</h2>
+                <h2 className="text-lg font-semibold">{dictionary.ticketConversation}</h2>
                 <div className="flex flex-col space-y-4 overflow-y-auto">
                   <SentMessage
                     message="Hi, I'm sorry to hear you're having trouble. Can you please provide more details about the issue you're facing?"
@@ -224,9 +245,9 @@ export default function TicketID({
                 <div className="flex items-center space-x-2">
                   <Textarea
                     className="flex-1"
-                    placeholder="Type your message..."
+                    placeholder={dictionary.ticketTypeMessage}
                   />
-                  <Button>Send</Button>
+                  <Button>{dictionary.ticketSend}</Button>
                 </div>
               </div>
             </main>

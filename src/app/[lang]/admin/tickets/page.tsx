@@ -31,21 +31,21 @@ export default async function AdminTickets(params: {lang: string}) {
             <div className="overflow-hidden rounded-lg shadow-lg">
                 <div className="w-full">
                 <div className="grid grid-cols-8 gap-4 bg-gray-200 dark:bg-gray-800">
-                    <div className="px-4 py-3 text-left text-sm font-medium">ID</div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Subject</div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Priority
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketID}</div>
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketSubject}</div>
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketPriority}
                     <Icons.arrowupdown className="w-6 h-4 inline-block" />
                     </div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Date
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketDate}
                     <Icons.arrowupdown className="w-6 h-4 inline-block" />
                     </div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Requester</div>
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketRequester}</div>
                     <div className="px-4 py-3 text-left text-sm font-medium">
-                    Responsible
+                    {dictionary.ticketResponsible}
                     </div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Status</div>
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketStatus}</div>
                     <div className="px-4 py-3 text-left text-sm font-medium">
-                    Last Message
+                    {dictionary.ticketLastMessage}
                     </div>
                 </div>
                     <div className="divide-y">
