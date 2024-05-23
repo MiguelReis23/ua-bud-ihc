@@ -1,30 +1,43 @@
-import { Card, CardContent, CardHeader, CardTitle, CardIcon } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardIcon,
+} from "@/components/ui/card";
 import { HeartHandshake } from "lucide-react";
 
 interface LandingCardProps {
-    title: string;
-    description: string;
-    }
+  title: string;
+  description: string;
+}
 
-
-export function LandingCard({ title, description}: LandingCardProps) {
+export function LandingCard({ title, description }: LandingCardProps) {
   return (
     <div className="py-3 space-y-4">
-        <Card className="w-full hover:bg-neutral-300 dark:hover:bg-neutral-800">
-            <CardHeader>
-                <CardTitle>{title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <p>{description}</p>
-            </CardContent>
-        </Card>
+      <Card className="w-full hover:bg-neutral-300 dark:hover:bg-neutral-800">
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>{description}</p>
+        </CardContent>
+      </Card>
     </div>
   );
 }
 
-export function CardWithIcon({ title, description, icon }: { title: string; description: string; icon: React.ReactNode }) {
+export function CardWithIcon({
+  title,
+  description,
+  icon,
+}: {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}) {
   return (
-    <Card className="w-full flex flex-row p-4 cursor-pointer hover:shadow-lg dark:hover:shadow-[#FFFFFF25] transition-shadow">
+    <Card className="w-full flex flex-row p-4 cursor-pointer hover:shadow-lg dark:hover:shadow-[#FFFFFF15] transition-shadow h-full">
       <div className="flex-grow">
         <CardHeader>
           <CardTitle>{title}</CardTitle>

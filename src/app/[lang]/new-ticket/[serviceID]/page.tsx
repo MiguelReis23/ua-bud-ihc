@@ -52,17 +52,18 @@ export default async function Home({
           </div>
         </div>
         <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
             {categories.map((category, index) => {
               const Icon = Icons[category.icon];
               return (
                 <Link
-                  href={`/${params.lang}/new-ticket/${serviceID.id}/${category.id}`} key={index}
+                  href={`/${params.lang}/new-ticket/${serviceID.id}/${category.id}`}
+                  key={index}
                 >
                   <CardWithIcon
                     title={category.name}
                     description={category.description}
-                    icon={Icon ? <Icon size={48} /> : ''}
+                    icon={Icon ? <Icon size={48} /> : ""}
                   />
                 </Link>
               );

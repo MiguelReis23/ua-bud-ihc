@@ -16,7 +16,7 @@ export default async function Home({
   return (
     <>
       <SiteHeader dictionary={dictionary} />
-      <main >
+      <main>
         <LandingCarousel dictionary={dictionary} />
         <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8">
@@ -24,13 +24,13 @@ export default async function Home({
               <h3 className="text-2xl font-semibold mb-6">
                 Artigos de Ajuda Populares
               </h3>
-              {ArticleData.slice(0,3).map((article) => (
+              {ArticleData.slice(0, 3).map((article) => (
                 <Link key={article.title} href={`/articles/${article.id}`}>
-                <LandingCard
-                  key={article.title}
-                  title={article.title}
-                  description={article.subtitle}
-                />
+                  <LandingCard
+                    key={article.title}
+                    title={article.title}
+                    description={article.subtitle}
+                  />
                 </Link>
               ))}
               <Link
@@ -41,12 +41,20 @@ export default async function Home({
               </Link>
             </section>
             <section>
-              <h3 className="text-2xl font-semibold mb-6">{dictionary.lastNews}</h3>
+              <h3 className="text-2xl font-semibold mb-6">
+                {dictionary.lastNews}
+              </h3>
               <Link href="https://www.ua.pt/pt/noticias/11/86598">
-                <LandingCard title="Curso de Medicina com parecer favorável da Comissão de Avaliação Externa" description="17 maio 2024" />
+                <LandingCard
+                  title="Curso de Medicina com parecer favorável da Comissão de Avaliação Externa"
+                  description="17 maio 2024"
+                />
               </Link>
               <Link href="https://www.ua.pt/pt/noticias/11/86493">
-                <LandingCard title="António Raminhos abre Conferência Saúde e Bem-estar" description="06 maio 2024" />
+                <LandingCard
+                  title="António Raminhos abre Conferência Saúde e Bem-estar"
+                  description="06 maio 2024"
+                />
               </Link>
               <Link
                 className="block mt-4 text-blue-700 hover:text-blue-500"
