@@ -28,6 +28,7 @@ export default function Home({
 }) {
   const [dictionary, setDictionary] = useState({});
   const [category, setCategory] = useState({});
+  const [service, setService] = useState({}); 
   const [fields, setFields] = useState([]);
   const [priority, setPriority] = useState("3 - Low");
 
@@ -44,6 +45,7 @@ export default function Home({
     e.preventDefault();
 
     const data = {
+      service: `${service.name}`,
       subject: `${category.name}`,
       details: fields
         .map((field) => {
@@ -74,6 +76,7 @@ export default function Home({
       const response = await fetch("/api/services");
       const data = await response.json();
       const foundService = data.find((ser) => ser.id == params.serviceID);
+      setService(foundService);
       const serviceCategory = foundService.categories.find(
         (cat) => cat.id == params.categoryID
       );
