@@ -10,7 +10,7 @@ interface LandingCardProps {
 export function LandingCard({ title, description}: LandingCardProps) {
   return (
     <div className="py-3 space-y-4">
-        <Card className="w-full">
+        <Card className="w-full hover:bg-neutral-300 dark:hover:bg-neutral-800">
             <CardHeader>
                 <CardTitle>{title}</CardTitle>
             </CardHeader>

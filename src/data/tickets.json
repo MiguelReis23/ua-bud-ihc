@@ -1,103 +1,125 @@
 [
-  {
-    "id": 1,
-    "subject": "HelpDesk",
-    "priority": "2 - Medium",
-    "date": "04/05/24",
-    "requester": "Kushwaha Chopra",
-    "responsible": "Emidio Costa",
-    "status": "Closed",
-    "lastMessage": "10 days ago",
-    "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, vestibulum ligula at, malesuada nunc. Suspendisse lacinia, nisl nec maximus ultricies, nunc turpis ultricies nunc, nec ultricies nunc turpis nec turpis."
-  },
-  {
-    "id": 2,
-    "subject": "Incident Report",
-    "priority": "1 - High",
-    "date": "09/05/24",
-    "requester": "Kushwaha Chopra",
-    "responsible": "Emidio Costa",
-    "status": "Closed",
-    "lastMessage": "5 days ago"
-  },
-  {
-    "id": 3,
-    "subject": "Request Physical Internet Connection",
-    "priority": "2 - Medium",
-    "date": "12/05/24",
-    "requester": "Lucio Fernando",
-    "responsible": "Emidio Costa",
-    "status": "In Progress",
-    "lastMessage": "2 days ago"
-  },
-  {
-    "id": 4,
-    "subject": "Request Physical Internet Connection",
-    "priority": "1 - High",
-    "date": "12/05/24",
-    "requester": "Mário Silva",
-    "responsible": "António Costa",
-    "status": "In Progress",
-    "lastMessage": "2 days ago"
-  },
-  {
-    "id": 5,
-    "subject": "Security Software Installation",
-    "priority": "3- Low",
-    "date": "13/05/24",
-    "requester": "Ana Santos",
-    "responsible": "Pedro Almeida",
-    "status": "Open",
-    "lastMessage": "1 day ago"
-  },
-  {
-    "id": 6,
-    "subject": "Printer Repair",
-    "priority": "2 - Medium",
-    "date": "13/05/24",
-    "requester": "Carlos Oliveira",
-    "responsible": "Mariana Ferreira",
-    "status": "Open",
-    "lastMessage": "1 day ago"
-  },
-  {
-    "id": 7,
-    "subject": "Request for New Equipment",
-    "priority": "3 - Low",
-    "date": "13/05/24",
-    "requester": "Sofia Carvalho",
-    "responsible": "Mariana Ferreira",
-    "status": "Open",
-    "lastMessage": "1 day ago"
-  },
-  {
-    "id": 8,
-    "subject": "Performance Drop",
-    "priority": "2 - Medium",
-    "date": "14/05/24",
-    "requester": "Miguel Costa",
-    "responsible": "António Costa",
-    "status": "In Progress",
-    "lastMessage": "Today"
-  },
-  {
-    "id": 9,
-    "subject": "Keyboard Replacement",
-    "priority": "1 - High",
-    "date": "14/05/24",
-    "requester": "Inês Martins",
-    "responsible": "Pedro Almeida",
-    "status": "Open",
-    "lastMessage": "Today"
-  },
-  {
-    "id": 10,
-    "subject": "VPN Configuration",
-    "priority": "2 - Medium",
-    "date": "14/05/24",
-    "requester": "Filipe Silva",
-    "responsible": "Andreia Santos",
-    "status": "In Progress",
-    "lastMessage": "Today"
-  }
+    {
+        "id": 1,
+        "subject": "HelpDesk",
+        "priority": "1 - High",
+        "date": "04/05/24",
+        "requester": "Kushwaha Chopra",
+        "responsible": "Emidio Costa",
+        "status": "In Progress",
+        "lastMessage": "10 days ago",
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, vestibulum ligula at, malesuada nunc. Suspendisse lacinia, nisl nec maximus ultricies, nunc turpis ultricies nunc, nec ultricies nunc turpis nec turpis."
+    },
+    {
+        "id": 2,
+        "subject": "Incident Report",
+        "priority": "1 - High",
+        "date": "09/05/24",
+        "requester": "Kushwaha Chopra",
+        "responsible": "Emidio Costa",
+        "status": "In Progress",
+        "lastMessage": "5 days ago"
+    },
+    {
+        "id": 3,
+        "subject": "Request Physical Internet Connection",
+        "priority": "2 - Medium",
+        "date": "12/05/24",
+        "requester": "Lucio Fernando",
+        "responsible": "Emidio Costa",
+        "status": "In Progress",
+        "lastMessage": "2 days ago"
+    },
+    {
+        "id": 4,
+        "subject": "Request Physical Internet Connection",
+        "priority": "1 - High",
+        "date": "12/05/24",
+        "requester": "Mário Silva",
+        "responsible": "António Costa",
+        "status": "In Progress",
+        "lastMessage": "2 days ago"
+    },
+    {
+        "id": 5,
+        "subject": "Security Software Installation",
+        "priority": "3- Low",
+        "date": "13/05/24",
+        "requester": "Ana Santos",
+        "responsible": "Pedro Almeida",
+        "status": "Open",
+        "lastMessage": "1 day ago"
+    },
+    {
+        "id": 6,
+        "subject": "Printer Repair",
+        "priority": "2 - Medium",
+        "date": "13/05/24",
+        "requester": "Carlos Oliveira",
+        "responsible": "Mariana Ferreira",
+        "status": "Open",
+        "lastMessage": "1 day ago"
+    },
+    {
+        "id": 7,
+        "subject": "Request for New Equipment",
+        "priority": "1 - High",
+        "date": "13/05/24",
+        "requester": "Sofia Carvalho",
+        "responsible": "Mariana Ferreira",
+        "status": "In Progress",
+        "lastMessage": "1 day ago"
+    },
+    {
+        "id": 8,
+        "subject": "Performance Drop",
+        "priority": "2 - Medium",
+        "date": "14/05/24",
+        "requester": "Miguel Costa",
+        "responsible": "António Costa",
+        "status": "In Progress",
+        "lastMessage": "Today"
+    },
+    {
+        "id": 9,
+        "subject": "Keyboard Replacement",
+        "priority": "1 - High",
+        "date": "14/05/24",
+        "requester": "Inês Martins",
+        "responsible": "Pedro Almeida",
+        "status": "Open",
+        "lastMessage": "Today"
+    },
+    {
+        "id": 10,
+        "subject": "VPN Configuration",
+        "priority": "2 - Medium",
+        "date": "14/05/24",
+        "requester": "Filipe Silva",
+        "responsible": "Andreia Santos",
+        "status": "In Progress",
+        "lastMessage": "Today"
+    },
+    {
+        "id": 11,
+        "subject": "Delegate project email account",
+        "priority": "3 - Low",
+        "date": "5/21/2024",
+        "requester": "Kushwaha Chopra",
+        "responsible": "Emidio Costa",
+        "status": "Open",
+        "lastMessage": "Today",
+        "details": "Who is this ticket for: \nProject / Event email account: \nFiles: \nObservations: "
+    },
+    {
+        "id": 12,
+        "subject": "Create an email account for project, event or institution",
+        "priority": "3 - Low",
+        "date": "5/23/2024",
+        "requester": "Kushwaha Chopra",
+        "responsible": "Emidio Costa",
+        "status": "Open",
+        "lastMessage": "Today",
+        "details": "Department: fasf\nDesired email account: afsf\nProject/Event/Institution name: saf\nResponsible: fsafs\nobservations: safasffasfa"
+    }
 ]

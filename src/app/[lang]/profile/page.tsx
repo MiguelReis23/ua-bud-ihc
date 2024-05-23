@@ -4,6 +4,7 @@ import { Icons } from "@/components/icons"
 import {ProfileCard} from "@/components/profile-card"
 import { getDictionary } from "@/lib/get-dictionary"
 import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 
 export default async function ProfilePage(params: {lang: string}) {
     const dictionary = await getDictionary(params.lang)
@@ -26,6 +27,7 @@ export default async function ProfilePage(params: {lang: string}) {
                     department="DETI - 04"
                     />
             </main>
+            <SiteFooter dictionary={dictionary} />
         </>
     )
 };

@@ -3,7 +3,7 @@ import { AdminHeader } from "@/components/admin-header";
 import { Icons } from "@/components/icons"
 import TicketsData from "@/data/tickets.json"
 import { getDictionary } from "@/lib/get-dictionary";
-import Link from 'next/link'
+import Link from 'next/link';
 
 
 export default async function AdminTickets(params: {lang: string}) {
@@ -30,28 +30,28 @@ export default async function AdminTickets(params: {lang: string}) {
             </div>
             <div className="overflow-hidden rounded-lg shadow-lg">
                 <div className="w-full">
-                <div className="grid grid-cols-8 gap-4 bg-gray-200 dark:bg-gray-800">
-                    <div className="px-4 py-3 text-left text-sm font-medium">ID</div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Subject</div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Priority
+                <div className="grid grid-cols-8 gap-4 bg-neutral-200 dark:bg-neutral-800">
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketID}</div>
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketSubject}</div>
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketPriority}
                     <Icons.arrowupdown className="w-6 h-4 inline-block" />
                     </div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Date
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketDate}
                     <Icons.arrowupdown className="w-6 h-4 inline-block" />
                     </div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Requester</div>
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketRequester}</div>
                     <div className="px-4 py-3 text-left text-sm font-medium">
-                    Responsible
+                    {dictionary.ticketResponsible}
                     </div>
-                    <div className="px-4 py-3 text-left text-sm font-medium">Status</div>
+                    <div className="px-4 py-3 text-left text-sm font-medium">{dictionary.ticketStatus}</div>
                     <div className="px-4 py-3 text-left text-sm font-medium">
-                    Last Message
+                    {dictionary.ticketLastMessage}
                     </div>
                 </div>
                     <div className="divide-y">
                     {ticketInfo.map((ticket, index) => (
                         <Link href={`/admin/tickets/${ticket.id}`}>
-                        <div key={ticket.id} className={`grid grid-cols-8 gap-4 ${index % 2 === 0 ? 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600' : 'bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-600'}`}>
+                        <div key={ticket.id} className={`grid grid-cols-8 gap-4 ${index % 2 === 0 ? 'bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600' : 'bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-600'}`}>
                             <div className="px-4 py-4">{ticket.id}</div>
                             <div className="px-4 py-4">{ticket.subject}</div>
                             <div className="px-4 py-3">{ticket.priority}</div>
