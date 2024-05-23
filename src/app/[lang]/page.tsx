@@ -37,12 +37,18 @@ export default async function Home({
                 className="block mt-4 text-blue-700 hover:text-blue-500"
                 href="/articles"
               >
-                {dictionary.seeAllArticles}
+                {
+                  //@ts-ignore
+                  dictionary.seeAllArticles
+                }
               </Link>
             </section>
             <section>
               <h3 className="text-2xl font-semibold mb-6">
-                {dictionary.lastNews}
+                {
+                  //@ts-ignore
+                  dictionary.lastNews
+                }
               </h3>
               <Link href="https://www.ua.pt/pt/noticias/11/86598">
                 <LandingCard
@@ -60,7 +66,10 @@ export default async function Home({
                 className="block mt-4 text-blue-700 hover:text-blue-500"
                 href="https://www.ua.pt/pt/noticias"
               >
-                {dictionary.seeAllNews}
+                {
+                  //@ts-ignore
+                  dictionary.seeAllNews
+                }
               </Link>
             </section>
           </div>
