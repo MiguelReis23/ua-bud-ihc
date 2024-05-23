@@ -1,4 +1,27 @@
-import { ArrowLeft, Plus, ArrowUpDown, History, Search, Send } from "lucide-react";
+import { 
+ArrowLeft,
+Plus,
+ArrowUpDown,
+History,
+Search,
+Send,
+AtSign,
+UserPlus,
+Globe,
+Forward,
+MailX,
+KeyRound,
+Video,
+GraduationCap,
+FileQuestion,
+Network,
+UserRound,
+Headset,
+Wrench,
+SquarePen,
+SquareCheck,
+Waypoints
+} from "lucide-react";
 import React from "react";
 
 type IconProps = React.HTMLAttributes<SVGElement> & {
@@ -39,4 +62,21 @@ export const Icons = {
   arrowupdown: (props: IconProps) => <ArrowUpDown {...props} />,
   search: (props: IconProps) => <Search {...props} />,
   send: (props: IconProps) => <Send {...props} />,
+  Plus: (props: IconProps) => <Plus {...props} />,
+  AtSign: (props: IconProps) => <AtSign {...props} />,
+  UserPlus: (props: IconProps) => <UserPlus {...props} />,
+  Globe: (props: IconProps) => <Globe {...props} />,
+  Forward: (props: IconProps) => <Forward {...props} />,
+  MailX: (props: IconProps) => <MailX {...props} />,
+  KeyRound: (props: IconProps) => <KeyRound {...props} />,
+  Video: (props: IconProps) => <Video {...props} />,
+  GraduationCap: (props: IconProps) => <GraduationCap {...props} />,
+  FileQuestion: (props: IconProps) => <FileQuestion {...props} />,
+  Network: (props: IconProps) => <Network {...props} />,
+  UserRound: (props: IconProps) => <UserRound {...props} />,
+  Headset: (props: IconProps) => <Headset {...props} />,
+  Wrench: (props: IconProps) => <Wrench {...props} />,
+  SquarePen: (props: IconProps) => <SquarePen {...props} />,
+  SquareCheck: (props: IconProps) => <SquareCheck {...props} />,
+  Waypoints: (props: IconProps) => <Waypoints {...props} />,
 };

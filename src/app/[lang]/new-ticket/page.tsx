@@ -3,18 +3,24 @@ import { CardWithIcon } from "@/components/custom-card";
 import { getDictionary } from "@/lib/get-dictionary";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
-import {
-  AtSign,
-  Globe,
-  Video,
-  GraduationCap,
-  FileQuestion,
-  Network,
-  UserRound,
-  Headset,
-  Wrench,
-} from "lucide-react";
+import{ Icons } from "@/components/icons";
 import { Separator } from "@radix-ui/react-separator";
+import {
+AtSign,
+UserPlus,
+Globe,
+Forward,
+MailX,
+KeyRound,
+Video,
+GraduationCap,
+FileQuestion,
+Network,
+UserRound,
+Headset,
+Wrench
+} from "lucide-react";
+import ServiceData from "@/data/services.json";
 
 export default async function Home({ params: { lang }, }: { params: { lang: string }; }) {
   const dictionary = await getDictionary(lang);
@@ -50,57 +56,19 @@ export default async function Home({ params: { lang }, }: { params: { lang: stri
         </div>
         <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Link href={`/${lang}/new-ticket-users-category`}>
-            <CardWithIcon
-              title="Email"
-              description="Web content hosting platform for projects, partnerships, UCs and personal pages."
-              icon={<AtSign size={48} />}
-            />
-            </Link>
-            <CardWithIcon
-              title="Web Hosting"
-              description="Web content hosting platform for projects, partnerships, UCs and personal pages."
-              icon={<Globe size={48} />}
-            />
-            <CardWithIcon
-              title="Audiovisual"
-              description="Installation of equipment, management of the Educast platform and support for audiovisual productions."
-              icon={<Video size={48} />}
-            />
-            <Link href={`/${lang}/new-ticket-elearning-category`}>
-              <CardWithIcon
-                title="E-Learning"
-                description="Manage areas and users of the support platform for distance learning."
-                icon={<GraduationCap size={48} />}
-              />
-            </Link>
-            <CardWithIcon
-              title="Online Surveys"
-              description="Service to create forms and surveys for data collection within the scope of projects."
-              icon={<FileQuestion size={48} />}
-            />
-            <Link href={`/${lang}/new-ticket-network-category`}>
-              <CardWithIcon
-                title="Communication Networks"
-                description="Departmental data communications service, internet access, through wired and wireless network."
-                icon={<Network size={48} />}
-              />
-            </Link>
-              <CardWithIcon
-                title="User Management"
-                description="Management of the electronic identity of the academic community users: personal data"
-                icon={<UserRound size={48} />}
-              />
-            <CardWithIcon
-              title="Helpdesk"
-              description="Technical support for face-to-face or video-call assistance."
-              icon={<Headset size={48} />}
-            />
-            <CardWithIcon
-              title="Report an Incident"
-              description="Request assistance for a security, performance, or availability issue."
-              icon={<Wrench size={48} />}
-            />
+            {ServiceData.map((service, index) => {
+              const Icon = Icons[service.icon];
+              return (
+                <Link href={`/${lang}/new-ticket/${service.id}`} key={index}>
+                  <CardWithIcon
+                    title={service.name}
+                    description={service.description}
+                    icon={Icon ? <Icon size={48} /> : ''}
+                  />
+                </Link>
+              );
+            }
+            )}
           </div>
         </div>
       </main>

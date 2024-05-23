@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 export async function POST(request) {
-  const { subject, details } = await request.json();
+  const { subject, details, priority } = await request.json();
   const data = fs.readFileSync(
     path.resolve("src", "data", "tickets.json"),
     "utf-8"
@@ -14,7 +14,7 @@ export async function POST(request) {
   const newTicket = {
     id: lastTicketId + 1,
     subject,
-    priority: "",
+    priority,
     date: new Date().toLocaleDateString(),
     requester: "Kushwaha Chopra",
     responsible: "Emidio Costa",

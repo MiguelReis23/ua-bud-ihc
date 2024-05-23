@@ -80,9 +80,9 @@ export default function TicketID({
       },
       body: JSON.stringify(updatedTicket),
     }).then(() => {
-    setHasChanges(false);
-    setInitialPriority(priority);
-    setInitialStatus(status);
+      setHasChanges(false);
+      setInitialPriority(priority);
+      setInitialStatus(status);
     });
   }
 
@@ -162,7 +162,7 @@ export default function TicketID({
                       </p>
                       <Select onValueChange={(value) => setStatus(value)}>
                         <SelectTrigger className="w-30">
-                          <SelectValue placeholder= {getStatus()} />
+                          <SelectValue placeholder={getStatus()} />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="Open">{dictionary.ticketStatusOpen}</SelectItem>

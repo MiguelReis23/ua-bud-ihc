@@ -25,7 +25,7 @@ export function AdminHeader({ dictionary }: { dictionary: any }) {
                 {dictionary.ManageTickets.toUpperCase()}
               </Button>
             </Link>
-            <Link href="/admin/newticket">
+            <Link href="/admin/new-ticket">
               <Button variant="default">
                 <Icons.add className="mr-1" />{" "}
                 {dictionary.newTicket.toUpperCase()}
