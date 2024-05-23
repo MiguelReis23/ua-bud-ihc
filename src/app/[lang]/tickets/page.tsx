@@ -30,7 +30,7 @@ export default async function Tickets({ params: { lang } }: { params: { lang: st
           </div>
           <div className="overflow-hidden rounded-lg shadow-lg">
             <div className="w-full">
-              <div className="grid grid-cols-7 gap-4 bg-gray-200 dark:bg-gray-800">
+              <div className="grid grid-cols-7 gap-4 bg-neutral-200 dark:bg-neutral-800">
                 <div className="px-4 py-3 text-left text-sm font-medium">
                 {dictionary.ticketSubject}
                 </div>
@@ -64,8 +64,8 @@ export default async function Tickets({ params: { lang } }: { params: { lang: st
                       key={ticket.id}
                       className={`grid grid-cols-7 gap-4 ${
                         index % 2 === 0
-                          ? "bg-gray-100 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-                          : "bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-600"
+                          ? "bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600"
+                          : "bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-600"
                       }`}
                     >
                       <div className="px-4 py-4">{ticket.subject}</div>
