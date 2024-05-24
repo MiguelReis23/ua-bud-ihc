@@ -40,25 +40,24 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: "id",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Task" />
+      <DataTableColumnHeader column={column} title="ID" />
     ),
     cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: "title",
+    accessorKey: "service",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Title" />
+      <DataTableColumnHeader column={column} title="Subject" />
     ),
     cell: ({ row }) => {
-      const label = labels.find((label) => label.value === row.original.label);
-
+      const label = labels.find((service) => service.value === row.original.service);
       return (
         <div className="flex space-x-2">
-          {label && <Badge variant="outline">{label.label}</Badge>}
+          {label && <Badge variant="outline">{row.original.service}</Badge>}
           <span className="max-w-[500px] truncate font-medium">
-            {row.getValue("title")}
+            {row.getValue("subject")}
           </span>
         </div>
       );

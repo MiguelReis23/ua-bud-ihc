@@ -13,7 +13,7 @@ import { DataTable } from "@/components/ui/data-table";
 
 async function getTasks() {
   const data = await fs.readFile(
-    path.join(process.cwd(), "src/data/tasks.json")
+    path.join(process.cwd(), "src/data/tickets.json")
   );
 
   const tasks = JSON.parse(data.toString());
@@ -21,21 +21,17 @@ async function getTasks() {
   return z.array(taskSchema).parse(tasks);
 }
 
-export default async function Tickets({
-  params: { lang },
-}: {
-  params: { lang: string };
-}) {
-  const ticketInfo = TicketsData.map((ticket, index) => ({
-    id: ticket.id,
-    subject: ticket.subject,
-    priority: ticket.priority,
-    date: ticket.date,
-    requester: ticket.requester,
-    responsible: ticket.responsible,
-    status: ticket.status,
-    lastMessage: ticket.lastMessage,
-  }));
+export default async function Tickets({ params: { lang }, }: { params: { lang: string }; }) {
+  // const ticketInfo = TicketsData.map((ticket, index) => ({
+  //   id: ticket.id,
+  //   subject: ticket.subject,
+  //   priority: ticket.priority,
+  //   date: ticket.date,
+  //   requester: ticket.requester,
+  //   responsible: ticket.responsible,
+  //   status: ticket.status,
+  //   lastMessage: ticket.lastMessage,
+  // }));
 
   const dictionary = await getDictionary(lang);
 
