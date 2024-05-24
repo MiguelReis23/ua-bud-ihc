@@ -16,7 +16,7 @@ export async function POST(request) {
     service,
     subject,
     priority,
-    date: new Date().toLocaleDateString(),
+    date: new Date().toLocaleString("pt-PT"),
     requester: "Kushwaha Chopra",
     responsible: "Emidio Costa",
     status: "Open",

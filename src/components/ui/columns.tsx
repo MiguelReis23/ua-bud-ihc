@@ -5,44 +5,20 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 
-import { labels, priorities, statuses } from "@/data/data";
+import { service, statuses, priorities } from "@/data/tickets";
 import { Task } from "@/data/tasksSchema";
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { DataTableRowActions } from "./data-table-row-actions";
 
 export const columns: ColumnDef<Task>[] = [
   {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value: any) =>
-          table.toggleAllPageRowsSelected(!!value)
-        }
-        aria-label="Select all"
-        className="translate-y-[2px]"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value: any) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-        className="translate-y-[2px]"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
     accessorKey: "id",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="ID" />
     ),
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
+    cell: ({ row }) => (
+      <div className="w-[80px]">TICKET-{row.getValue("id")}</div>
+    ),
     enableSorting: false,
     enableHiding: false,
   },
@@ -52,16 +28,48 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Subject" />
     ),
     cell: ({ row }) => {
-      const label = labels.find((service) => service.value === row.original.service);
+      const label = service.find(
+        (service) => service.value === row.original.service
+      );
+
+      console.log(row);
       return (
         <div className="flex space-x-2">
-          {label && <Badge variant="outline">{row.original.service}</Badge>}
+          {label && <Badge variant="secondary">{row.original.service}</Badge>}
           <span className="max-w-[500px] truncate font-medium">
-            {row.getValue("subject")}
+            {row.original["subject"]}
           </span>
         </div>
       );
     },
+  },
+  {
+    accessorKey: "requester",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Requester" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center space-x-2">
+          <span>{row.original.requester}</span>
+        </div>
+      );
+    },
+    enableSorting: false,
+  },
+  {
+    accessorKey: "responsible",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Responsible" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center space-x-2">
+          <span>{row.original.responsible}</span>
+        </div>
+      );
+    },
+    enableSorting: false,
   },
   {
     accessorKey: "status",
@@ -80,7 +88,7 @@ export const columns: ColumnDef<Task>[] = [
       return (
         <div className="flex w-[100px] items-center">
           {status.icon && (
-            <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+            <status.icon className="mr-2 h-4 w-4" color={status.color} />
           )}
           <span>{status.label}</span>
         </div>
@@ -118,7 +126,38 @@ export const columns: ColumnDef<Task>[] = [
     },
   },
   {
-    id: "actions",
-    cell: ({ row }) => <DataTableRowActions row={row} />,
+    accessorKey: "date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Date" />
+    ),
+    cell: ({ row }) => {
+      if (!row.original.date) {
+        return null;
+      }
+
+      return <div>{row.original.date}</div>;
+    },
+    sortingFn: (rowA: any, rowB: any, columnId) => {
+      const parseDate = (dateString: any) => {
+        const [datePart, timePart] = dateString.split(", ");
+        const [day, month, year] = datePart.split("/");
+        return new Date(`${year}-${month}-${day}T${timePart}`);
+      };
+
+      const dateA = parseDate(rowA.original[columnId]);
+      const dateB = parseDate(rowB.original[columnId]);
+
+      return dateA > dateB ? 1 : dateA < dateB ? -1 : 0;
+    },
+  },
+  {
+    accessorKey: "lastMessage",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Last Message" />
+    ),
+    cell: ({ row }) => {
+      return <div>{row.original.lastMessage}</div>;
+    },
+    enableSorting: false,
   },
 ];

@@ -1,26 +1,50 @@
 [
-    {
-        "id": 1,
-        "service": "Email",
-        "subject": "Create an email account for project, event or institution",
-        "priority": "1 - High",
-        "date": "2021-01-01",
-        "requester": "Miguel Vila",
-        "responsible": "Emídio Costa",
-        "status": "Closed",
-        "lastMessage": "3 years ago",
-        "details": "Department: DETI\n\nDesired email account: GLUA@ua.pt\n\nProject/Event/Institution name: Grupo de Linux da Universidade de Aveiro, Responsible: Miguel Vila\n\nObservations: The Grupo de Linux da Universidade de Aveiro is a group of students and teachers that promote the use of Linux and open-source software in the University of Aveiro. We need an email account to communicate with other groups and institutions."
-    },
-    {
-        "id": 2,
-        "service": "Communication Networks",
-        "subject": "Create / change physical connection to department network",
-        "priority": "3 - Low",
-        "date": "5/24/2024",
-        "requester": "Kushwaha Chopra",
-        "responsible": "Emidio Costa",
-        "status": "Open",
-        "lastMessage": "Today",
-        "details": "Department: DETI\nLocation: 04.2.34\nNetwork socket(s) to be intervened: 2.11\nBrief description of the need: No Connection to Wi-Fi\nobservations: I have no wireless connection"
-    }
+  {
+    "id": 1,
+    "service": "Email",
+    "subject": "Create an email account for project, event or institution",
+    "priority": "1 - High",
+    "date": "24/01/2021, 14:00:00",
+    "requester": "Miguel Vila",
+    "responsible": "Emídio Costa",
+    "status": "Closed",
+    "lastMessage": "3 years ago",
+    "details": "Department: DETI\n\nDesired email account: GLUA@ua.pt\n\nProject/Event/Institution name: Grupo de Linux da Universidade de Aveiro, Responsible: Miguel Vila\n\nObservations: The Grupo de Linux da Universidade de Aveiro is a group of students and teachers that promote the use of Linux and open-source software in the University of Aveiro. We need an email account to communicate with other groups and institutions."
+  },
+  {
+    "id": 2,
+    "service": "Networks",
+    "subject": "Create / change physical connection to department network",
+    "priority": "3 - Low",
+    "date": "07/08/2024, 10:00:00",
+    "requester": "Kushwaha Chopra",
+    "responsible": "Emidio Costa",
+    "status": "Open",
+    "lastMessage": "Today",
+    "details": "Department: DETI\nLocation: 04.2.34\nNetwork socket(s) to be intervened: 2.11\nBrief description of the need: No Connection to Wi-Fi\nobservations: I have no wireless connection"
+  },
+  {
+    "id": 3,
+    "service": "Audiovisual",
+    "subject": "Educast",
+    "priority": "1 - High",
+    "date": "24/05/2024, 01:37:17",
+    "requester": "Kushwaha Chopra",
+    "responsible": "Emidio Costa",
+    "status": "Open",
+    "lastMessage": "Today",
+    "details": "Link to the video: https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygULcmljayBhc3RsZXk%3D\nBrief description of the need: Abre isto\nobservations: Tas pronto?"
+  },
+  {
+    "id": 4,
+    "service": "User Management",
+    "subject": "Educast",
+    "priority": "1 - High",
+    "date": "24/05/2024, 01:37:17",
+    "requester": "Kushwaha Chopra",
+    "responsible": "Emidio Costa",
+    "status": "Open",
+    "lastMessage": "Today",
+    "details": "Link to the video: https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygULcmljayBhc3RsZXk%3D\nBrief description of the need: Abre isto\nobservations: Tas pronto?"
+  }
 ]

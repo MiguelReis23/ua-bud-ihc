@@ -1,4 +1,5 @@
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { getDictionary } from "@/lib/get-dictionary";
 import { Icons } from "@/components/icons";
 import TicketsData from "@/data/tickets.json";
@@ -21,7 +22,11 @@ async function getTasks() {
   return z.array(taskSchema).parse(tasks);
 }
 
-export default async function Tickets({ params: { lang }, }: { params: { lang: string }; }) {
+export default async function Tickets({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
   // const ticketInfo = TicketsData.map((ticket, index) => ({
   //   id: ticket.id,
   //   subject: ticket.subject,
@@ -39,15 +44,18 @@ export default async function Tickets({ params: { lang }, }: { params: { lang: s
 
   return (
     <>
-      <SiteHeader dictionary={dictionary} />
-      <main className="flex flex-col items-center h-screen py-12 container">
-        <div className="w-full px-4 md:px-6">
-          <div className="mb-8 text-center">
-            <h1 className="text-4xl font-bold">{dictionary.myTickets}</h1>
+      <div className="flex flex-col min-h-screen">
+        <SiteHeader dictionary={dictionary} />
+        <main className="container max-w-screen-2xl flex flex-1 flex-col items-center py-12">
+          <div className="w-full px-4 md:px-6">
+            <div className="mb-8 text-center">
+              <h1 className="text-4xl font-bold">{dictionary.myTickets}</h1>
+            </div>
           </div>
-        </div>
-        <DataTable data={tasks} columns={columns} />
-      </main>
+          <DataTable data={tasks} columns={columns} />
+        </main>
+        <SiteFooter dictionary={dictionary} />
+      </div>
     </>
   );
 }

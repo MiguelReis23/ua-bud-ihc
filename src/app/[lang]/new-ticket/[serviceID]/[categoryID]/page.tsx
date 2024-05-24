@@ -28,7 +28,7 @@ export default function Home({
 }) {
   const [dictionary, setDictionary] = useState({});
   const [category, setCategory] = useState({});
-  const [service, setService] = useState({}); 
+  const [service, setService] = useState({});
   const [fields, setFields] = useState([]);
   const [priority, setPriority] = useState("3 - Low");
 
@@ -138,7 +138,7 @@ export default function Home({
                           <Input
                             className="mt-3"
                             id={field}
-                            placeholder={`Enter ${field.toLowerCase()}`}
+                            placeholder={`Enter ${field}`}
                             onChange={(e) => {
                               const newFields = [...fields];
                               newFields[index] = { [field]: e.target.value };

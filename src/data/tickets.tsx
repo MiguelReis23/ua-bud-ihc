@@ -29,8 +29,8 @@ export const service = [
     label: "Online Surveys",
   },
   {
-    value: "Communication Networks",
-    label: "Communication Networks",
+    value: "Networks",
+    label: "Networks",
   },
   {
     value: "User Management",
@@ -43,42 +43,44 @@ export const service = [
   {
     value: "Report an Incident",
     label: "Report an Incident",
-  }
+  },
 ];
 
-export const status = [
+export const statuses = [
   {
     value: "Closed",
     label: "Closed",
-    icon: CheckCircledIcon
+    icon: CheckCircledIcon,
+    color: "green",
   },
   {
     value: "In Progress",
     label: "In Progress",
-    icon: StopwatchIcon
+    icon: StopwatchIcon,
+    color: "blue",
   },
   {
     value: "Open",
     label: "Open",
-    icon: CircleIcon
+    icon: CircleIcon,
+    color: "red",
   },
 ];
 
-export const priority = [
+export const priorities = [
   {
-    label: "Low",
-    value: "Low",
+    label: "3 - Low",
+    value: "3 - Low",
     icon: ArrowDownIcon,
   },
   {
-    label: "Medium",
-    value: "Medium",
+    label: "2 - Medium",
+    value: "2 - Medium",
     icon: ArrowRightIcon,
   },
   {
-    label: "High",
-    value: "High",
+    label: "1 - High",
+    value: "1 - High",
     icon: ArrowUpIcon,
   },
 ];
-

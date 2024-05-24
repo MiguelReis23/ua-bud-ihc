@@ -1,146 +1,158 @@
 [
-    {
+  {
+    "id": 1,
+    "name": "Email",
+    "description": " Manage and provide access to email accounts.",
+    "icon": "AtSign",
+    "categories": [
+      {
         "id": 1,
-        "name": "Email",
-        "description": " Manage and provide access to email accounts.",
-        "icon": "AtSign",
-        "categories": [
-            {
-                "id": 1,
-                "name": "Create an email account for project, event or institution",
-                "description": "Request the creation of an email account for a project, event or institution.",
-                "icon": "Plus",
-                "fields":[ "Department", "Desired email account", "Project/Event/Institution name", "Responsible"]
-            },
-            {
-                "id": 2,
-                "name": "Delegate access to project email account",
-                "description": "Request access letting a user access a project email account.",
-                "icon": "UserPlus",
-                "fields":["Department", "Project/Event email account", "List of UUs (Separated by;)"]
-            },
-            {
-                "id": 3,
-                "name": "Redirect email to an external account",
-                "description": "Request the redirection of an email account to an external account from other email providers.",
-                "icon": "Forward",
-                "fields":["Destination email account"]
-            },
-            {
-                "id": 4,
-                "name": "Delete a mailling list ",
-                "description": "Request the deletion of a mailing list.",
-                "icon": "MailX",
-                "fields":["Department", "Mailling List ID"]
-            },
-            {
-                "id": 5,
-                "name": "Change/Recover project email account password",
-                "description": "Request the change or recovery of the password for a project email account.",
-                "icon": "KeyRound",
-                "fields":["Department", "Project/Event email account"]
-            }
+        "name": "Create an email account for project, event or institution",
+        "description": "Request the creation of an email account for a project, event or institution.",
+        "icon": "Plus",
+        "fields": [
+          "Department",
+          "Desired email account",
+          "Project/Event/Institution name",
+          "Responsible"
         ]
-    },
-    {
+      },
+      {
         "id": 2,
-        "name": "Web Hosting",
-        "description": "Web content hosting platform for projects, partnerships, UCs and personal pages.",
-        "icon": "Globe",
-        "categories": [
-            {
-            "id": 1,
-            "name": "Request operations on generic websites",
-            "description": "Request operation on generic websites related to projects, partnerships, UCs and personal pages.",
-            "icon": "SquarePen",
-            "fields":[ "Site address", "Brief description of the need"]
-           }
+        "name": "Delegate access to project email account",
+        "description": "Request access letting a user access a project email account.",
+        "icon": "UserPlus",
+        "fields": [
+          "Department",
+          "Project/Event email account",
+          "List of UUs (Separated by;)"
         ]
-    },
-    {
+      },
+      {
         "id": 3,
-        "name": "Audiovisual",
-        "description": "Installation of equipment, management of the Educast platform and support for audiovisual productions.",
-        "icon": "Video",
-        "categories": [
-            {
-                "id": 1,
-                "name": "Educast",
-                "description": "Platform for the dissemination of audiovisual content.",
-                "icon": "Video",
-                "fields": [
-                    {
-                        "title": "Title",
-                        "placeholder": "Title"
-                    }
-                ]
-            }]
-    },
-    {
+        "name": "Redirect email to an external account",
+        "description": "Request the redirection of an email account to an external account from other email providers.",
+        "icon": "Forward",
+        "fields": ["Destination email account"]
+      },
+      {
         "id": 4,
-        "name": "E-Learning",
-        "description": "Manage areas and users of the support platform for distance learning.",
-        "icon": "GraduationCap",
-        "categories": [
-            {
-                "id": 1,
-                "name": "Create an area in the e-learning platform",
-                "description": "Request the creation of a page for a project, event or course in the e-learning platform.",
-                "icon": "Plus",
-                "fields":[ "Name of the area", "Responsible", "Brief description of the need"]
-            },
-            {
-                "id": 2,
-                "name": "Associate user with course in Moodle",
-                "description": "Request the association of a user with a course in the e-learning platform.",
-                "icon": "UserPlus",
-                "fields":["Course Code", "Course Name", "User ID", "User Email"]
-            }
-        ]
-    },
-    {
+        "name": "Delete a mailling list ",
+        "description": "Request the deletion of a mailing list.",
+        "icon": "MailX",
+        "fields": ["Department", "Mailling List ID"]
+      },
+      {
         "id": 5,
-        "name": "Online Surveys",
-        "description": "Service to create forms and surveys for data collection within the scope of projects.",
-        "icon": "FileQuestion",
-        "categories": []
-    },
-    {
-        "id": 6,
-        "name": "Communication Networks",
-        "description": "Departmental data communications service, internet access, through wired and wireless network.",
-        "icon": "Network",
-        "categories": [
-            {
-                "id": 1,
-                "name": "Create / change physical connection to department network",
-                "description": "Request the creation or change of a physical connection to the department network.",
-                "icon": "Waypoints",
-                "fields":[ "Department", "Location", "Network socket(s) to be intervened", "Brief description of the need"]
-            }
+        "name": "Change/Recover project email account password",
+        "description": "Request the change or recovery of the password for a project email account.",
+        "icon": "KeyRound",
+        "fields": ["Department", "Project/Event email account"]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Web Hosting",
+    "description": "Web content hosting platform for projects, partnerships, UCs and personal pages.",
+    "icon": "Globe",
+    "categories": [
+      {
+        "id": 1,
+        "name": "Request operations on generic websites",
+        "description": "Request operation on generic websites related to projects, partnerships, UCs and personal pages.",
+        "icon": "SquarePen",
+        "fields": ["Site address", "Brief description of the need"]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Audiovisual",
+    "description": "Installation of equipment, management of the Educast platform and support for audiovisual productions.",
+    "icon": "Video",
+    "categories": [
+      {
+        "id": 1,
+        "name": "Educast",
+        "description": "Platform for the dissemination of audiovisual content.",
+        "icon": "Video",
+        "fields": ["Link to the video", "Brief description of the need"]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "E-Learning",
+    "description": "Manage areas and users of the support platform for distance learning.",
+    "icon": "GraduationCap",
+    "categories": [
+      {
+        "id": 1,
+        "name": "Create an area in the e-learning platform",
+        "description": "Request the creation of a page for a project, event or course in the e-learning platform.",
+        "icon": "Plus",
+        "fields": [
+          "Name of the area",
+          "Responsible",
+          "Brief description of the need"
         ]
-    },
-    {
-        "id": 7,
-        "name": "User Management",
-        "description": "Management of the electronic identity of the academic community users: personal data",
-        "icon": "UserRound",
-        "categories": []
-    },
-    {
-        "id": 8,
-        "name": "Helpdesk",
-        "description": "Technical support for face-to-face or video-call assistance.",
-        "icon": "Headset",
-        "categories": []
-    },
-    {
-        "id": 9,
-        "name": "Report an Incident",
-        "description": "Request assistance for a security, performance, or availability issue.",
-        "icon": "Wrench",
-        "categories": []
-    }
-
-
+      },
+      {
+        "id": 2,
+        "name": "Associate user with course in Moodle",
+        "description": "Request the association of a user with a course in the e-learning platform.",
+        "icon": "UserPlus",
+        "fields": ["Course Code", "Course Name", "User ID", "User Email"]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Online Surveys",
+    "description": "Service to create forms and surveys for data collection within the scope of projects.",
+    "icon": "FileQuestion",
+    "categories": []
+  },
+  {
+    "id": 6,
+    "name": "Networks",
+    "description": "Departmental data communications service, internet access, through wired and wireless network.",
+    "icon": "Network",
+    "categories": [
+      {
+        "id": 1,
+        "name": "Create / change physical connection to department network",
+        "description": "Request the creation or change of a physical connection to the department network.",
+        "icon": "Waypoints",
+        "fields": [
+          "Department",
+          "Location",
+          "Network socket(s) to be intervened",
+          "Brief description of the need"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "User Management",
+    "description": "Management of the electronic identity of the academic community users: personal data",
+    "icon": "UserRound",
+    "categories": []
+  },
+  {
+    "id": 8,
+    "name": "Helpdesk",
+    "description": "Technical support for face-to-face or video-call assistance.",
+    "icon": "Headset",
+    "categories": []
+  },
+  {
+    "id": 9,
+    "name": "Report an Incident",
+    "description": "Request assistance for a security, performance, or availability issue.",
+    "icon": "Wrench",
+    "categories": []
+  }
 ]
