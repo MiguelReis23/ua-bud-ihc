@@ -19,7 +19,9 @@ async function getTasks() {
 
   const tasks = JSON.parse(data.toString());
 
-  return z.array(taskSchema).parse(tasks);
+  const myTasks = tasks.filter((task: any) => task.requester == "Kushwaha Chopra");
+
+  return z.array(taskSchema).parse(myTasks);
 }
 
 export default async function Tickets({

@@ -21,6 +21,7 @@ export const columns: ColumnDef<Task>[] = [
     ),
     enableSorting: false,
     enableHiding: false,
+    enableColumnFilter: true,
   },
   {
     accessorKey: "service",
@@ -32,26 +33,12 @@ export const columns: ColumnDef<Task>[] = [
         (service) => service.value === row.original.service
       );
 
-      console.log(row);
       return (
         <div className="flex space-x-2">
           {label && <Badge variant="secondary">{row.original.service}</Badge>}
           <span className="max-w-[500px] truncate font-medium">
             {row.original["subject"]}
           </span>
-        </div>
-      );
-    },
-  },
-  {
-    accessorKey: "requester",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Requester" />
-    ),
-    cell: ({ row }) => {
-      return (
-        <div className="flex items-center space-x-2">
-          <span>{row.original.requester}</span>
         </div>
       );
     },
