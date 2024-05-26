@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "@/components/ui/data-table-view-options";
 
-import { priorities, statuses } from "@/data/tickets"; 
+import { service, priorities, statuses } from "@/data/tickets";
 import { DataTableFacetedFilter } from "@/components/ui/data-table-faceted-filter";
 
 interface DataTableToolbarProps<TData> {
@@ -28,6 +28,13 @@ export function DataTableToolbar<TData>({
           onChange={(e) => table.setGlobalFilter(e.target.value)}
           className="w-48"
         />
+        {table.getColumn("subject") && (
+          <DataTableFacetedFilter
+            column={table.getColumn("subject")}
+            title="Services"
+            options={service}
+          />
+        )}
         {table.getColumn("status") && (
           <DataTableFacetedFilter
             column={table.getColumn("status")}

@@ -24,7 +24,7 @@ export const columns: ColumnDef<Task>[] = [
     enableColumnFilter: true,
   },
   {
-    accessorKey: "service",
+    accessorKey: "subject",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Subject" />
     ),
@@ -41,6 +41,9 @@ export const columns: ColumnDef<Task>[] = [
           </span>
         </div>
       );
+    },
+    filterFn: (row, id, value) => {
+      return value.includes(row.original.service);
     },
     enableSorting: false,
   },
