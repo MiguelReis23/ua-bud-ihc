@@ -87,6 +87,7 @@ export const columns: ColumnDef<Task>[] = [
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
     },
+    enableGlobalFilter: false,
   },
   {
     accessorKey: "priority",
@@ -114,6 +115,7 @@ export const columns: ColumnDef<Task>[] = [
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
     },
+    enableGlobalFilter: false,
   },
   {
     accessorKey: "date",
@@ -149,5 +151,6 @@ export const columns: ColumnDef<Task>[] = [
       return <div>{row.original.lastMessage}</div>;
     },
     enableSorting: false,
+    enableGlobalFilter: false,
   },
 ];
