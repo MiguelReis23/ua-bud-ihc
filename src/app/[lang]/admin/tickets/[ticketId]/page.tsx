@@ -4,6 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
+import React from "react";
 import {
   Select,
   SelectTrigger,
@@ -15,8 +16,9 @@ import { ReceivedMessage } from "@/components/received-message";
 import { SentMessage } from "@/components/sent-message";
 import { useState, useEffect } from "react";
 import { AdminHeader } from "@/components/admin-header";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { SiteFooter } from "@/components/site-footer";
+import { Toaster } from "@/components/ui/toaster";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function TicketID({
   params,
@@ -107,7 +109,7 @@ export default function TicketID({
       // @ts-ignore
       return dictionary.ticketStatusOpen;
       // @ts-ignore
-    } else if (ticket.status === "In progress") {
+    } else if (ticket.status === "In Progress") {
       // @ts-ignore
       return dictionary.ticketStatusInProgress;
       // @ts-ignore
@@ -117,253 +119,270 @@ export default function TicketID({
     }
   }
 
+  const { toast } = useToast();
+
   return (
     <>
       {Object.keys(dictionary).length === 0 ? (
         <></>
       ) : (
         <>
-          <AdminHeader dictionary={dictionary} />
-          <div className="flex h-screen flex-col container">
-            <header className="flex h-16 items-center border-b px-4 md:px-6">
-              <Link href="/admin/tickets">
-                <Button variant="default">
-                  <Icons.back className="mr-1" />{" "}
-                  {
-                    // @ts-ignore
-                    dictionary.back
-                  }
-                </Button>
-              </Link>
-              <div className="flex-1 text-center text-sm font-medium">
-                Ticket #
-                {
-                  // @ts-ignore
-                  ticket.id
-                }{" "}
-              </div>
-            </header>
-            <main className="flex-1 grid grid-cols-3 gap-6 p-4 md:p-6">
-              <div className="col-span-2 space-y-4 border-r pr-6">
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <div>
-                      <p className="font-medium">
-                        <b>
-                          {
-                            // @ts-ignore
-                            dictionary.ticketSubject
-                          }
-                          :
-                        </b>{" "}
-                        {
-                          // @ts-ignore
-                          ticket.subject
-                        }
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-medium">
-                        <b>
-                          {
-                            // @ts-ignore
-                            dictionary.ticketDate
-                          }
-                          :
-                        </b>
-                        {
-                          // @ts-ignore
-                          ticket.date
-                        }
-                      </p>
-                    </div>
+          <div className="w-full">
+            <div className="flex flex-col min-h-screen">
+              <AdminHeader dictionary={dictionary} />
+              <div className="flex flex-1 h-screen flex-col container">
+                <header className="flex h-16 items-center border-b">
+                  <Link href="/admin/tickets">
+                    <Button variant="default">
+                      <Icons.back className="mr-1" />{" "}
+                      {
+                        // @ts-ignore
+                        dictionary.back
+                      }
+                    </Button>
+                  </Link>
+                  <div className="flex-1 text-center text-sm font-medium">
+                    Ticket #
+                    {
+                      // @ts-ignore
+                      ticket.id
+                    }{" "}
                   </div>
-                  <div className="flex justify-between">
-                    <div className="flex items-center space-x-3">
-                      <p className="font-medium">
-                        <b>
+                </header>
+                <main className="flex-1 grid md:grid-cols-3 gap-6 w-full grid-cols-1 pt-4">
+                  <div className="col-span-2 space-y-4 border-r pr-6">
+                    <div className="space-y-2">
+                      <div className="flex justify-between">
+                        <div className="">
+                          <p className="font-medium">
+                            <b>
+                              {
+                                // @ts-ignore
+                                dictionary.ticketSubject
+                              }
+                              :
+                            </b>{" "}
+                            {
+                              // @ts-ignore
+                              ticket.subject
+                            }
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-medium">
+                            <b>
+                              {
+                                // @ts-ignore
+                                dictionary.ticketDate
+                              }
+                              :
+                            </b>
+                            {
+                              // @ts-ignore
+                              ticket.date
+                            }
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex justify-between">
+                        <div className="flex items-center space-x-3">
+                          <p className="font-medium">
+                            <b>
+                              {
+                                // @ts-ignore
+                                dictionary.ticketPriority
+                              }
+                              :
+                            </b>
+                          </p>
+                          <Select
+                            onValueChange={(value: any) => setPriority(value)}
+                          >
+                            <SelectTrigger className="w-30">
+                              <SelectValue placeholder={getPriority()} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="1 - High">
+                                {
+                                  // @ts-ignore
+                                  dictionary.ticketHighPriority
+                                }
+                              </SelectItem>
+                              <SelectItem value="2 - Medium">
+                                {
+                                  // @ts-ignore
+                                  dictionary.ticketMediumPriority
+                                }
+                              </SelectItem>
+                              <SelectItem value="3 - Low">
+                                {
+                                  // @ts-ignore
+                                  dictionary.ticketLowPriority
+                                }
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <p className="font-medium">
+                            <b>Status:</b>
+                          </p>
+                          <Select
+                            onValueChange={(value: any) => setStatus(value)}
+                          >
+                            <SelectTrigger className="w-30">
+                              <SelectValue placeholder={getStatus()} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="Open">
+                                {
+                                  // @ts-ignore
+                                  dictionary.ticketStatusOpen
+                                }
+                              </SelectItem>
+                              <SelectItem value="In Progress">
+                                {
+                                  // @ts-ignore
+                                  dictionary.ticketStatusInProgress
+                                }
+                              </SelectItem>
+                              <SelectItem value="Closed">
+                                {
+                                  // @ts-ignore
+                                  dictionary.ticketStatusClosed
+                                }
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+                      <div className="flex justify-between">
+                        <div className="flex items-center space-x-2">
+                          <p className="font-medium">
+                            <b>
+                              {
+                                // @ts-ignore
+                                dictionary.ticketRequester
+                              }
+                              :
+                            </b>
+                          </p>
+                          <div className="flex items-center space-x-2">
+                            <Avatar>
+                              <AvatarImage alt="Avatar" src="/KC.jpg" />
+                              <AvatarFallback>KC</AvatarFallback>
+                            </Avatar>
+                            <p className="text-sm font-medium">
+                              {
+                                // @ts-ignore
+                                ticket.requester
+                              }
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="space-y-2">
+                        <div className="h-[300px] overflow-auto border p-2">
                           {
                             // @ts-ignore
-                            dictionary.ticketPriority
+                            ticket.details.split("\n").map((line, index) => (
+                              <React.Fragment key={index}>
+                                {line}
+                                <br />
+                              </React.Fragment>
+                            ))
                           }
-                          :
-                        </b>
-                      </p>
-                      <Select
-                        onValueChange={(value: any) => setPriority(value)}
-                      >
-                        <SelectTrigger className="w-30">
-                          <SelectValue placeholder={getPriority()} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="1 - High">
-                            {
-                              // @ts-ignore
-                              dictionary.ticketHighPriority
-                            }
-                          </SelectItem>
-                          <SelectItem value="2 - Medium">
-                            {
-                              // @ts-ignore
-                              dictionary.ticketMediumPriority
-                            }
-                          </SelectItem>
-                          <SelectItem value="3 - Low">
-                            {
-                              // @ts-ignore
-                              dictionary.ticketLowPriority
-                            }
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <p className="font-medium">
-                        <b>Status:</b>
-                      </p>
-                      <Select onValueChange={(value: any) => setStatus(value)}>
-                        <SelectTrigger className="w-30">
-                          <SelectValue placeholder={getStatus()} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="Open">
-                            {
-                              // @ts-ignore
-                              dictionary.ticketStatusOpen
-                            }
-                          </SelectItem>
-                          <SelectItem value="In progress">
-                            {
-                              // @ts-ignore
-                              dictionary.ticketStatusInProgress
-                            }
-                          </SelectItem>
-                          <SelectItem value="Closed">
-                            {
-                              // @ts-ignore
-                              dictionary.ticketStatusClosed
-                            }
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-                  <div className="flex justify-between">
-                    <div className="flex items-center space-x-2">
-                      <p className="font-medium">
-                        <b>
-                          {
-                            // @ts-ignore
-                            dictionary.ticketRequester
-                          }
-                          :
-                        </b>
-                      </p>
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <Avatar>
-                          <AvatarImage alt="Avatar" src="/KC.jpg" />
-                          <AvatarFallback>KC</AvatarFallback>
+                          <AvatarImage alt="Avatar" src="/EC.jpg" />
+                          <AvatarFallback>EC</AvatarFallback>
                         </Avatar>
-                        <p className="text-sm font-medium">
+                        <div>
+                          <p className="text-sm font-medium">
+                            {
+                              // @ts-ignore
+                              ticket.responsible
+                            }
+                          </p>
+                          <p className="text-xs font-medium">
+                            {
+                              // @ts-ignore
+                              dictionary.ticketHandler
+                            }
+                          </p>
+                        </div>
+                      </div>
+                      <div className="space-x-2">
+                        <Button
+                          variant="default"
+                          onClick={() => {
+                            toast({
+                              title: "Ticket updated",
+                              description: "The ticket has been updated.",
+                            });
+                            handleUpdate();
+                          }}
+                          disabled={!hasChanges}
+                        >
                           {
                             // @ts-ignore
-                            ticket.requester
+                            dictionary.ticketUpdate
                           }
-                        </p>
+                        </Button>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="space-y-2">
-                    <div className="h-[300px] overflow-auto border p-2">
+                  <div className="space-y-4">
+                    <h2 className="text-lg font-semibold">
                       {
                         // @ts-ignore
-                        ticket.details
+                        dictionary.ticketConversation
                       }
+                    </h2>
+                    <div className="flex flex-col space-y-4 overflow-y-auto">
+                      <SentMessage
+                        message="Hi, I'm sorry to hear you're having trouble. Can you please provide more details about the issue you're facing?"
+                        timestamp="May 9, 2024 at 10:35 AM"
+                        avatarSrc="/EC.jpg"
+                        avatarFallback="EC"
+                      />
+                      <ReceivedMessage
+                        message="I'm having trouble with the app. It keeps crashing whenever I try to open it."
+                        timestamp="May 9, 2024 at 10:37 AM"
+                        avatarSrc="/KC.jpg"
+                        avatarFallback="KC"
+                      />
                     </div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <Avatar>
-                      <AvatarImage alt="Avatar" src="/EC.jpg" />
-                      <AvatarFallback>EC</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="text-sm font-medium">
+                    <div className="flex items-center space-x-2">
+                      <Textarea
+                        className="flex-1"
+                        placeholder={
+                          // @ts-ignore
+                          dictionary.ticketTypeMessage
+                        }
+                      />
+                      <Button>
                         {
                           // @ts-ignore
-                          ticket.responsible
+                          dictionary.ticketSend
                         }
-                      </p>
-                      <p className="text-xs font-medium">
-                        {
-                          // @ts-ignore
-                          dictionary.ticketHandler
-                        }
-                      </p>
+                      </Button>
                     </div>
                   </div>
-                  <ToastContainer style={{ marginTop: "50px" }} />
-                  <div className="space-x-2">
-                    <Button
-                      variant="default"
-                      onClick={() => {
-                        toast("Ticket has been updated");
-                        handleUpdate();
-                      }}
-                      disabled={!hasChanges}
-                    >
-                      {
-                        // @ts-ignore
-                        dictionary.ticketUpdate
-                      }
-                    </Button>
-                  </div>
-                </div>
+                </main>
               </div>
-              <div className="space-y-4">
-                <h2 className="text-lg font-semibold">
-                  {
-                    // @ts-ignore
-                    dictionary.ticketConversation
-                  }
-                </h2>
-                <div className="flex flex-col space-y-4 overflow-y-auto">
-                  <SentMessage
-                    message="Hi, I'm sorry to hear you're having trouble. Can you please provide more details about the issue you're facing?"
-                    timestamp="May 9, 2024 at 10:35 AM"
-                    avatarSrc="/EC.jpg"
-                    avatarFallback="EC"
-                  />
-                  <ReceivedMessage
-                    message="I'm having trouble with the app. It keeps crashing whenever I try to open it."
-                    timestamp="May 9, 2024 at 10:37 AM"
-                    avatarSrc="/KC.jpg"
-                    avatarFallback="KC"
-                  />
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Textarea
-                    className="flex-1"
-                    placeholder={
-                      // @ts-ignore
-                      dictionary.ticketTypeMessage
-                    }
-                  />
-                  <Button>
-                    {
-                      // @ts-ignore
-                      dictionary.ticketSend
-                    }
-                  </Button>
-                </div>
-              </div>
-            </main>
+              <SiteFooter dictionary={dictionary} />
+            </div>
           </div>
         </>
       )}
+      <Toaster />
     </>
   );
 }
