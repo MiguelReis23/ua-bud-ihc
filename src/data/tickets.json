@@ -142,17 +142,5 @@
         "status": "Open",
         "lastMessage": "Today",
         "details": "Department: DETI\nLocation: 04.2.08\nNetwork socket(s) to be intervened: All\nBrief description of the need: No internet connection"
-    },
-    {
-        "id": 13,
-        "service": "Networks",
-        "subject": "Create / change physical connection to department network",
-        "priority": "3 - Low",
-        "date": "26/05/2024, 22:57:57",
-        "requester": "Kushwaha Chopra",
-        "responsible": "Emidio Costa",
-        "status": "In Progress",
-        "lastMessage": "Yesterday",
-        "details": "Department: DETI\nLocation: 04.2.08\nNetwork socket(s) to be intervened: All\nBrief description of the need: No internet connection"
     }
 ]
