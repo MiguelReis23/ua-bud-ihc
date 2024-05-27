@@ -32,25 +32,31 @@ export default async function TicketID({
   }
 
   function getPriority() {
-    if (ticket.priority === "1 - High") {
+    if (ticket?.priority === "1 - High") {
+      //@ts-ignore
       return dictionary.ticketHighPriority;
-    } else if (ticket.priority === "2 - Medium") {
+    } else if (ticket?.priority === "2 - Medium") {
+      //@ts-ignore
       return dictionary.ticketMediumPriority;
-    } else if (ticket.priority === "3 - Low") {
+    } else if (ticket?.priority === "3 - Low") {
+      //@ts-ignore
       return dictionary.ticketLowPriority;
     }
   }
 
   function getStatus() {
-    if (ticket.status === "Open") {
+    if (ticket?.status === "Open") {
+      //@ts-ignore
       return dictionary.ticketStatusOpen;
-    } else if (ticket.status === "In progress") {
+    } else if (ticket?.status === "In progress") {
+      //@ts-ignore
       return dictionary.ticketStatusInProgress;
-    } else if (ticket.status === "Closed") {
+    } else if (ticket?.status === "Closed") {
+      //@ts-ignore
       return dictionary.ticketStatusClosed;
     }
   }
-  
+
   return (
     <>
       <SiteHeader dictionary={dictionary} />
@@ -59,7 +65,11 @@ export default async function TicketID({
           <header className="flex h-16 items-center border-b px-4 md:px-6">
             <Link href="/tickets">
               <Button variant="default">
-                <Icons.back className="mr-1" /> {dictionary.back}
+                <Icons.back className="mr-1" />{" "}
+                {
+                  //@ts-ignore
+                  dictionary.back
+                }
               </Button>
             </Link>
             <div className="flex-1 text-center text-sm font-medium">
@@ -72,12 +82,25 @@ export default async function TicketID({
                 <div className="flex justify-between">
                   <div>
                     <p className="font-medium">
-                      <b>{dictionary.ticketSubject}:</b> {ticket.subject}
+                      <b>
+                        {
+                          //@ts-ignore
+                          dictionary.ticketSubject
+                        }
+                        :
+                      </b>{" "}
+                      {ticket.subject}
                     </p>
                   </div>
                   <div className="text-right">
                     <p className="font-medium">
-                      <b>{dictionary.ticketDate}:</b>
+                      <b>
+                        {
+                          //@ts-ignore
+                          dictionary.ticketDate
+                        }
+                        :
+                      </b>
                       {ticket.date}
                     </p>
                   </div>
@@ -85,31 +108,73 @@ export default async function TicketID({
                 <div className="flex justify-between">
                   <div className="flex items-center space-x-3">
                     <p className="font-medium">
-                      <b>{dictionary.ticketPriority}:</b>
+                      <b>
+                        {
+                          //@ts-ignore
+                          dictionary.ticketPriority
+                        }
+                        :
+                      </b>
                     </p>
                     <Select value={ticket.priority} disabled>
                       <SelectTrigger className="w-30">
                         <SelectValue placeholder="Select" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="1 - High">{dictionary.ticketHighPriority}</SelectItem>
-                        <SelectItem value="2 - Medium">{dictionary.ticketMediumPriority}</SelectItem>
-                        <SelectItem value="3 - Low">{dictionary.ticketLowPriority}</SelectItem>
+                        <SelectItem value="1 - High">
+                          {
+                            //@ts-ignore
+                            dictionary.ticketHighPriority
+                          }
+                        </SelectItem>
+                        <SelectItem value="2 - Medium">
+                          {
+                            //@ts-ignore
+                            dictionary.ticketMediumPriority
+                          }
+                        </SelectItem>
+                        <SelectItem value="3 - Low">
+                          {
+                            //@ts-ignore
+                            dictionary.ticketLowPriority
+                          }
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                   <div className="flex items-center space-x-2">
                     <p className="font-medium">
-                      <b>{dictionary.ticketStatus}:</b>
+                      <b>
+                        {
+                          //@ts-ignore
+                          dictionary.ticketStatus
+                        }
+                        :
+                      </b>
                     </p>
                     <Select value={ticket.status} disabled>
                       <SelectTrigger className="w-30">
                         <SelectValue placeholder="Select" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="Open">{dictionary.ticketStatusOpen}</SelectItem>
-                        <SelectItem value="In Progress">{dictionary.ticketStatusInProgress}</SelectItem>
-                        <SelectItem value="Closed">{dictionary.ticketStatusClosed}</SelectItem>
+                        <SelectItem value="Open">
+                          {
+                            //@ts-ignore
+                            dictionary.ticketStatusOpen
+                          }
+                        </SelectItem>
+                        <SelectItem value="In Progress">
+                          {
+                            //@ts-ignore
+                            dictionary.ticketStatusInProgress
+                          }
+                        </SelectItem>
+                        <SelectItem value="Closed">
+                          {
+                            //@ts-ignore
+                            dictionary.ticketStatusClosed
+                          }
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -117,7 +182,13 @@ export default async function TicketID({
                 <div className="flex justify-between">
                   <div className="flex items-center space-x-2">
                     <p className="font-medium">
-                      <b>{dictionary.ticketRequester}:</b>
+                      <b>
+                        {
+                          //@ts-ignore
+                          dictionary.ticketRequester
+                        }
+                        :
+                      </b>
                     </p>
                     <div className="flex items-center space-x-2">
                       <Avatar>
@@ -144,13 +215,23 @@ export default async function TicketID({
                   </Avatar>
                   <div>
                     <p className="text-sm font-medium">{ticket.responsible}</p>
-                    <p className="text-xs">{dictionary.ticketHandler}</p>
+                    <p className="text-xs">
+                      {
+                        //@ts-ignore
+                        dictionary.ticketHandler
+                      }
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="space-y-4">
-              <h2 className="text-lg font-semibold">{dictionary.ticketConversation}</h2>
+              <h2 className="text-lg font-semibold">
+                {
+                  //@ts-ignore
+                  dictionary.ticketConversation
+                }
+              </h2>
               <div className="flex flex-col space-y-4 overflow-y-auto">
                 <ReceivedMessage
                   message="Hi, I'm sorry to hear you're having trouble. Can you please provide more details about the issue you're facing?"
@@ -168,9 +249,17 @@ export default async function TicketID({
               <div className="flex items-center space-x-2">
                 <Textarea
                   className="flex-1"
-                  placeholder={dictionary.ticketTypeMessage}
+                  placeholder={
+                    //@ts-ignore
+                    dictionary.ticketTypeMessage
+                  }
                 />
-                <Button>{dictionary.ticketSend}</Button>
+                <Button>
+                  {
+                    //@ts-ignore
+                    dictionary.ticketSend
+                  }
+                </Button>
               </div>
             </div>
           </main>

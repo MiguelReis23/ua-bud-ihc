@@ -3,7 +3,6 @@ import { CardWithIcon } from "@/components/custom-card";
 import { getDictionary } from "@/lib/get-dictionary";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
-import { Plus, Waypoints } from "lucide-react";
 import ServiceData from "@/data/services.json";
 import { Icons } from "@/components/icons";
 import NotFound from "../../not-found";
@@ -16,7 +15,7 @@ export default async function Home({
   const dictionary = await getDictionary(params.lang);
   const ID = Number(params.serviceID);
   const serviceID = ServiceData.find((service) => service.id === ID);
-  const categories = serviceID.categories;
+  const categories = serviceID?.categories;
 
   if (!ID) return <NotFound lang={params.lang} />;
 
@@ -26,7 +25,10 @@ export default async function Home({
       <main className="flex-1">
         <div className="flex-1 w-full py-5">
           <h1 className="text-4xl text-center font-bold text-gray-900 dark:text-gray-100">
-            {serviceID.name}
+            {
+              // @ts-ignore
+              serviceID.name
+            }
           </h1>
         </div>
         <div className="flex justify-center space-x-20">
@@ -53,33 +55,26 @@ export default async function Home({
         </div>
         <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
-            {categories.map((category, index) => {
-              const Icon = Icons[category.icon];
-              return (
-                <Link
-                  href={`/${params.lang}/new-ticket/${serviceID.id}/${category.id}`}
-                  key={index}
-                >
-                  <CardWithIcon
-                    title={category.name}
-                    description={category.description}
-                    icon={Icon ? <Icon size={48} /> : ""}
-                  />
-                </Link>
-              );
-            })}
-            {/* <Link href={`/${lang}/new-ticket-elearning-details`}>
-              <CardWithIcon
-                title="Create an area in Moodle"
-                description="Creation and configuration of virtual learning spaces."
-                icon={<Plus size={48} />}
-              />
-            </Link>
-            <CardWithIcon
-              title="Associate user to area in Moodle"
-              description="Creation and configuration of virtual learning spaces."
-              icon={<Waypoints size={48} />}
-            /> */}
+            {
+              // @ts-ignore
+              categories.map((category, index) => {
+                // @ts-ignore
+                const Icon = Icons[category.icon];
+                return (
+                  <Link
+                    // @ts-ignore
+                    href={`/${params.lang}/new-ticket/${serviceID.id}/${category.id}`}
+                    key={index}
+                  >
+                    <CardWithIcon
+                      title={category.name}
+                      description={category.description}
+                      icon={Icon ? <Icon size={48} /> : ""}
+                    />
+                  </Link>
+                );
+              })
+            }
           </div>
         </div>
       </main>

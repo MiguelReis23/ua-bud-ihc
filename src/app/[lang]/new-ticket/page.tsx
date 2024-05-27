@@ -3,26 +3,14 @@ import { CardWithIcon } from "@/components/custom-card";
 import { getDictionary } from "@/lib/get-dictionary";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
-import{ Icons } from "@/components/icons";
-import { Separator } from "@radix-ui/react-separator";
-import {
-AtSign,
-UserPlus,
-Globe,
-Forward,
-MailX,
-KeyRound,
-Video,
-GraduationCap,
-FileQuestion,
-Network,
-UserRound,
-Headset,
-Wrench
-} from "lucide-react";
+import { Icons } from "@/components/icons";
 import ServiceData from "@/data/services.json";
 
-export default async function Home({ params: { lang }, }: { params: { lang: string }; }) {
+export default async function Home({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
   const dictionary = await getDictionary(lang);
 
   return (
@@ -57,18 +45,18 @@ export default async function Home({ params: { lang }, }: { params: { lang: stri
         <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {ServiceData.map((service, index) => {
+              // @ts-ignore
               const Icon = Icons[service.icon];
               return (
                 <Link href={`/${lang}/new-ticket/${service.id}`} key={index}>
                   <CardWithIcon
                     title={service.name}
                     description={service.description}
-                    icon={Icon ? <Icon size={48} /> : ''}
+                    icon={Icon ? <Icon size={48} /> : ""}
                   />
                 </Link>
               );
-            }
-            )}
+            })}
           </div>
         </div>
       </main>

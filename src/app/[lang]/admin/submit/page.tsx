@@ -13,7 +13,7 @@ export default async function Home(params: { lang: string }) {
         <Icons.send width={400} height={400} />
         <p className="mt-4 text-center text-2xl font-bold">Success!</p>
         <p className="mt-2 text-center mb-4">
-          Ticket sent, you will be notified once there's an update
+          Ticket sent, you will be notified once there&apos;s an update
         </p>
         <Link href={`/${dictionary.locale}/admin/tickets`}>
           <Button variant="secondary">

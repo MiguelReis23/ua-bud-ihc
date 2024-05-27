@@ -21,7 +21,12 @@ export default async function ArticlePage({
         <main className="container flex flex-col flex-1 items-center max-w-screen-2xl max-w-7-xl mx-auto py-12 py-8">
           <div className="w-full max-w-4xl px-4 md:px-6">
             <div className="mb-8 text-center">
-              <h1 className="text-4xl font-bold">{dictionary.articleTitle}</h1>
+              <h1 className="text-4xl font-bold">
+                {
+                  // @ts-ignore
+                  dictionary.articleTitle
+                }
+              </h1>
             </div>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">

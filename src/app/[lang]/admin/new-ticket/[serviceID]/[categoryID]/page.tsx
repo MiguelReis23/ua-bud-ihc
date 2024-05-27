@@ -40,11 +40,14 @@ export default function Home({
     fetchDictionary();
   }, [params.lang]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     const data = {
-      subject: `${category.name}`,
+      subject: `${
+        //@ts-ignore
+        category.name
+      }`,
       details: fields
         .map((field) => {
           const [key, value] = Object.entries(field)[0];
@@ -73,14 +76,14 @@ export default function Home({
     const fetchServices = async () => {
       const response = await fetch("/api/services");
       const data = await response.json();
-      const foundService = data.find((ser) => ser.id == params.serviceID);
+      const foundService = data.find((ser: any) => ser.id == params.serviceID);
       const serviceCategory = foundService.categories.find(
-        (cat) => cat.id == params.categoryID
+        (cat: any) => cat.id == params.categoryID
       );
       setCategory(serviceCategory);
     };
     fetchServices();
-  }, []);
+  }, [params.serviceID, params.categoryID]);
 
   return (
     <>
@@ -93,7 +96,10 @@ export default function Home({
             <main className="flex-1">
               <div className="flex-1 w-full py-5">
                 <h1 className="text-4xl text-center font-bold text-gray-900 dark:text-gray-100">
-                  {category?.name}
+                  {
+                    //@ts-ignore
+                    category?.name
+                  }
                 </h1>
               </div>
               <div className="flex justify-center space-x-20">
@@ -123,27 +129,31 @@ export default function Home({
               <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
                 <form className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <section className="flex flex-col col-span-2 md:col-span-1">
-                    {category?.fields?.slice(0, 2).map((field, index) => {
-                      return (
-                        <div className="mb-4" key={index}>
-                          <Label
-                            className="text-xl font-medium "
-                            htmlFor={field}
-                          >
-                            {field}:*
-                          </Label>
-                          <Input
-                            id={field}
-                            placeholder={`Enter ${field.toLowerCase()}`}
-                            onChange={(e) => {
-                              const newFields = [...fields];
-                              newFields[index] = { [field]: e.target.value };
-                              setFields(newFields);
-                            }}
-                          />
-                        </div>
-                      );
-                    })}
+                    {
+                      //@ts-ignore
+                      category?.fields?.slice(0, 2).map((field, index) => {
+                        return (
+                          <div className="mb-4" key={index}>
+                            <Label
+                              className="text-xl font-medium "
+                              htmlFor={field}
+                            >
+                              {field}:*
+                            </Label>
+                            <Input
+                              id={field}
+                              placeholder={`Enter ${field.toLowerCase()}`}
+                              onChange={(e) => {
+                                const newFields = [...fields];
+                                //@ts-ignore
+                                newFields[index] = { [field]: e.target.value };
+                                setFields(newFields);
+                              }}
+                            />
+                          </div>
+                        );
+                      })
+                    }
                     <div className="mb-4 flex items-center">
                       <Label
                         className="text-xl font-medium mr-4 "
@@ -157,13 +167,22 @@ export default function Home({
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="1 - High">
-                            {dictionary.ticketHighPriority}
+                            {
+                              //@ts-ignore
+                              dictionary.ticketHighPriority
+                            }
                           </SelectItem>
                           <SelectItem value="2 - Medium">
-                            {dictionary.ticketMediumPriority}
+                            {
+                              //@ts-ignore
+                              dictionary.ticketMediumPriority
+                            }
                           </SelectItem>
                           <SelectItem value="3 - Low">
-                            {dictionary.ticketLowPriority}
+                            {
+                              //@ts-ignore
+                              dictionary.ticketLowPriority
+                            }
                           </SelectItem>
                         </SelectContent>
                       </Select>
@@ -184,29 +203,33 @@ export default function Home({
                     </div>
                   </section>
                   <section className="flex flex-col col-span-2 md:col-span-1">
-                    {category?.fields?.slice(2).map((field, index) => {
-                      return (
-                        <div className="mb-4" key={index}>
-                          <Label
-                            className="text-xl font-medium "
-                            htmlFor={field}
-                          >
-                            {field}:*
-                          </Label>
-                          <Input
-                            id={field}
-                            placeholder={`Enter ${field.toLowerCase()}`}
-                            onChange={(e) => {
-                              const newFields = [...fields];
-                              newFields[index + 2] = {
-                                [field]: e.target.value,
-                              };
-                              setFields(newFields);
-                            }}
-                          />
-                        </div>
-                      );
-                    })}
+                    {
+                      //@ts-ignore
+                      category?.fields?.slice(2).map((field, index) => {
+                        return (
+                          <div className="mb-4" key={index}>
+                            <Label
+                              className="text-xl font-medium "
+                              htmlFor={field}
+                            >
+                              {field}:*
+                            </Label>
+                            <Input
+                              id={field}
+                              placeholder={`Enter ${field.toLowerCase()}`}
+                              onChange={(e) => {
+                                const newFields = [...fields];
+                                //@ts-ignore
+                                newFields[index + 2] = {
+                                  [field]: e.target.value,
+                                };
+                                setFields(newFields);
+                              }}
+                            />
+                          </div>
+                        );
+                      })
+                    }
                     <div className="mb-4 flex-1 flex flex-col">
                       <Label
                         className="text-xl font-medium "
@@ -220,6 +243,7 @@ export default function Home({
                         className="flex-1"
                         onChange={(e) => {
                           const newFields = [...fields];
+                          //@ts-ignore
                           newFields[category.fields.length] = {
                             observations: e.target.value,
                           };

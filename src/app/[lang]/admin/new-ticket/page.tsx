@@ -4,22 +4,6 @@ import { getDictionary } from "@/lib/get-dictionary";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { Icons } from "@/components/icons";
-import { Separator } from "@radix-ui/react-separator";
-import {
-  AtSign,
-  UserPlus,
-  Globe,
-  Forward,
-  MailX,
-  KeyRound,
-  Video,
-  GraduationCap,
-  FileQuestion,
-  Network,
-  UserRound,
-  Headset,
-  Wrench,
-} from "lucide-react";
 import ServiceData from "@/data/services.json";
 
 export default async function Home({
@@ -61,6 +45,7 @@ export default async function Home({
         <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {ServiceData.map((service, index) => {
+              // @ts-ignore
               const Icon = Icons[service.icon];
               return (
                 <Link

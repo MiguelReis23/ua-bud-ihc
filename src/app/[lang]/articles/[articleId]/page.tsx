@@ -27,7 +27,10 @@ export default async function ArticleID({
               {articleID.title}
             </h1>
             <p className="font-light text-gray-500 mt-4">
-              {dictionary.articleSubtitle}
+              {
+                // @ts-ignore
+                dictionary.articleSubtitle
+              }
             </p>
             <br />
             <p className="font-light ">{articleID.description}</p>
