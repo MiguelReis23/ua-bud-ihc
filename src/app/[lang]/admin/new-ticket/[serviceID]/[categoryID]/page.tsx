@@ -28,6 +28,7 @@ export default function Home({
 }) {
   const [dictionary, setDictionary] = useState({});
   const [category, setCategory] = useState({});
+  const [service, setService] = useState({}); 
   const [fields, setFields] = useState([]);
   const [priority, setPriority] = useState("3 - Low");
 
@@ -44,6 +45,10 @@ export default function Home({
     e.preventDefault();
 
     const data = {
+      service:`${
+        // @ts-ignore
+        service.name
+      }`,
       subject: `${
         //@ts-ignore
         category.name
@@ -55,6 +60,7 @@ export default function Home({
         })
         .join("\n"),
       priority,
+      requester: "Emídio Costa",
     };
 
     const response = await fetch("/api/tickets/new", {

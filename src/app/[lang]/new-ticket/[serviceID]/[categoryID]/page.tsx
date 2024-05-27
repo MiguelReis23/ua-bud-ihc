@@ -60,6 +60,7 @@ export default function Home({
         })
         .join("\n"),
       priority,
+      requester: "Kushwaha Chopra",
     };
 
     const response = await fetch("/api/tickets/new", {
