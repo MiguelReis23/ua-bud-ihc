@@ -6,6 +6,14 @@ import { SearchBar } from "@/components/searchbar";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import Link from "next/link";
 import { LocaleSwitcher } from "./locale-switcher";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function SiteHeader({
   dictionary,
@@ -40,12 +48,28 @@ export function SiteHeader({
             <Separator orientation="vertical" className="h-8" />
             <ThemeSwitcher />
             <LocaleSwitcher />
-            <Link href="/profile">
-              <Avatar>
-                <AvatarImage src="/KC.jpg" />
-                <AvatarFallback>KC</AvatarFallback>
-              </Avatar>
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Avatar>
+                  <AvatarImage src="/KC.jpg" />
+                  <AvatarFallback>KC</AvatarFallback>
+                </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <Link href={`/${dictionary.locale}/profile`}>
+                  <DropdownMenuItem>
+                    <Icons.UserRound className="mr-2" />
+                    Profile
+                  </DropdownMenuItem>
+                </Link>
+                <Link href={`/login`}>
+                  <DropdownMenuItem>
+                    <Icons.LogOut className="mr-2" />
+                    Logout
+                  </DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
         </div>
       </div>
