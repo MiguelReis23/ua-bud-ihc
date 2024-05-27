@@ -23,9 +23,9 @@ export default function ArticleID() {
 
   const handleLogin = () => {
     if (accountType === "admin") {
-      window.location.href = `/admin`;
+      window.location.href = `/en/admin`;
     } else {
-      window.location.href = `/`;
+      window.location.href = `/en`;
     }
   };
 
