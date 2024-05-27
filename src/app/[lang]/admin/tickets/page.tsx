@@ -24,7 +24,7 @@ async function getTasks() {
 export default async function Tickets({
   params: { lang },
 }: {
-  params: { lang: string };
+  params: { lang: any };
 }) {
   const dictionary = await getDictionary(lang);
 

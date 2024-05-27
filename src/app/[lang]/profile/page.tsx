@@ -3,7 +3,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getDictionary } from "@/lib/get-dictionary";
 
-export default async function ProfilePage(params: { lang: string }) {
+export default async function ProfilePage(params: { lang: any }) {
   const dictionary = await getDictionary(params.lang);
   return (
     <>

@@ -10,7 +10,7 @@ import NotFound from "../../../not-found";
 export default async function Home({
   params,
 }: {
-  params: { lang: string; serviceID: Number };
+  params: { lang: any; serviceID: Number };
 }) {
   const dictionary = await getDictionary(params.lang);
   const ID = Number(params.serviceID);

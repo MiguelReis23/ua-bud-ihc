@@ -22,7 +22,7 @@ import { SiteFooter } from "@/components/site-footer";
 export default async function TicketID({
   params,
 }: {
-  params: { lang: string; ticketId: string };
+  params: { lang: any; ticketId: string };
 }) {
   const dictionary = await getDictionary(params.lang);
 

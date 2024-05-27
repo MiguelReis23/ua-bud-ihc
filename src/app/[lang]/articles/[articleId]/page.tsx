@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/site-footer";
 export default async function ArticleID({
   params,
 }: {
-  params: { lang: string; articleId: string };
+  params: { lang: any; articleId: string };
 }) {
   const dictionary = await getDictionary(params.lang);
   const ID = Number(params.articleId);

@@ -9,7 +9,7 @@ import ServiceData from "@/data/services.json";
 export default async function Home({
   params: { lang },
 }: {
-  params: { lang: string };
+  params: { lang: any };
 }) {
   const dictionary = await getDictionary(lang);
 

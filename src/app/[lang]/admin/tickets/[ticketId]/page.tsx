@@ -23,7 +23,7 @@ import { useToast } from "@/components/ui/use-toast";
 export default function TicketID({
   params,
 }: {
-  params: { lang: string; ticketId: string };
+  params: { lang: any; ticketId: string };
 }) {
   const [ticket, setTicket] = useState({});
   const [priority, setPriority] = useState();

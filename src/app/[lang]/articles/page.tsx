@@ -11,7 +11,7 @@ import { SiteFooter } from "@/components/site-footer";
 export default async function ArticlePage({
   params: { lang },
 }: {
-  params: { lang: string };
+  params: { lang: any };
 }) {
   const dictionary = await getDictionary(lang);
   return (

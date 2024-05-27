@@ -4,7 +4,7 @@ import { Icons } from "@/components/icons";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export default async function Home(params: { lang: string }) {
+export default async function Home(params: { lang: any }) {
   const dictionary = await getDictionary(params.lang);
   return (
     <div className="flex flex-col min-h-screen">

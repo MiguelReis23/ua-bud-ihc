@@ -24,7 +24,7 @@ import { useEffect, useState } from "react";
 export default function Home({
   params,
 }: {
-  params: { lang: string; serviceID: Number; categoryID: Number };
+  params: { lang: any; serviceID: Number; categoryID: Number };
 }) {
   const [dictionary, setDictionary] = useState({});
   const [category, setCategory] = useState({});
