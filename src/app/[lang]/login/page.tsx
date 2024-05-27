@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+import { Icons } from "@/components/icons";
+
 import {
   Select,
   SelectContent,
@@ -31,9 +33,12 @@ export default function ArticleID() {
     <>
       <div className="flex flex-col min-h-screen h-full">
         <div className="w-full lg:grid lg:grid-cols-2 h-full h-screen">
-          <div className="flex items-center justify-center py-12">
-            <div className="mx-auto grid w-[350px] gap-6">
-              <div className="grid gap-2 text-center">
+          <div className="flex items-center justify-center py-12 h-full">
+            <div className="mx-auto grid w-[350px] gap-6 flex flex-col justify-center">
+              <div className="grid gap-2 text-center align-middle items-center justify-center flex flex-col">
+                <div className="flex justify-center">
+                  <Icons.logo className="h-[90px] w-auto mt-1 mb-4" />
+                </div>
                 <h1 className="text-3xl font-bold">Login</h1>
                 <p className="text-balance text-muted-foreground">
                   Enter your UA username below to login to your account
