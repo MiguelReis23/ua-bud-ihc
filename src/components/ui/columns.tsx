@@ -8,7 +8,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { service, statuses, priorities } from "@/data/tickets";
 import { Task } from "@/data/tasksSchema";
 import { DataTableColumnHeader } from "./data-table-column-header";
-import { DataTableRowActions } from "./data-table-row-actions";
 
 export const columns: ColumnDef<Task>[] = [
   {
@@ -44,6 +43,20 @@ export const columns: ColumnDef<Task>[] = [
     },
     filterFn: (row, id, value) => {
       return value.includes(row.original.service);
+    },
+    enableSorting: false,
+  },
+  {
+    accessorKey: "requester",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Requester" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center space-x-2">
+          <span>{row.original.requester}</span>
+        </div>
+      );
     },
     enableSorting: false,
   },

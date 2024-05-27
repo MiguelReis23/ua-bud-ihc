@@ -19,7 +19,9 @@ async function getTasks() {
 
   const tasks = JSON.parse(data.toString());
 
-  const myTasks = tasks.filter((task: any) => task.requester == "Kushwaha Chopra");
+  const myTasks = tasks.filter(
+    (task: any) => task.requester == "Kushwaha Chopra"
+  );
 
   return z.array(taskSchema).parse(myTasks);
 }
@@ -29,17 +31,6 @@ export default async function Tickets({
 }: {
   params: { lang: string };
 }) {
-  // const ticketInfo = TicketsData.map((ticket, index) => ({
-  //   id: ticket.id,
-  //   subject: ticket.subject,
-  //   priority: ticket.priority,
-  //   date: ticket.date,
-  //   requester: ticket.requester,
-  //   responsible: ticket.responsible,
-  //   status: ticket.status,
-  //   lastMessage: ticket.lastMessage,
-  // }));
-
   const dictionary = await getDictionary(lang);
 
   const tasks = await getTasks();
@@ -54,7 +45,7 @@ export default async function Tickets({
               <h1 className="text-4xl font-bold">{dictionary.myTickets}</h1>
             </div>
           </div>
-          <DataTable data={tasks} columns={columns} />
+          <DataTable data={tasks} columns={columns} isAdmin={false} />
         </main>
         <SiteFooter dictionary={dictionary} />
       </div>

@@ -31,11 +31,13 @@ import { DataTableToolbar } from "./data-table-toolbar";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  isAdmin: boolean;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  isAdmin,
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
@@ -45,9 +47,13 @@ export function DataTable<TData, TValue>({
   );
   const [sorting, setSorting] = React.useState<SortingState>([]);
 
+  const modifiedColumns = isAdmin
+    ? columns
+    : [...columns.slice(0, 2), ...columns.slice(3)];
+
   const table = useReactTable({
     data,
-    columns,
+    columns: modifiedColumns,
     state: {
       sorting,
       columnVisibility,
@@ -96,6 +102,11 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  onClick={() => {
+                    window.location.href =
+                      window.location.href + "/" + (row.original as any).id;
+                  }}
+                  className="cursor-pointer"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>

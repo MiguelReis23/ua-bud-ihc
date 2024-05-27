@@ -1,33 +1,37 @@
-import { SiteHeader } from "@/components/site-header";
+import { AdminHeader } from "@/components/admin-header";
 import { CardWithIcon } from "@/components/custom-card";
 import { getDictionary } from "@/lib/get-dictionary";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
-import{ Icons } from "@/components/icons";
+import { Icons } from "@/components/icons";
 import { Separator } from "@radix-ui/react-separator";
 import {
-AtSign,
-UserPlus,
-Globe,
-Forward,
-MailX,
-KeyRound,
-Video,
-GraduationCap,
-FileQuestion,
-Network,
-UserRound,
-Headset,
-Wrench
+  AtSign,
+  UserPlus,
+  Globe,
+  Forward,
+  MailX,
+  KeyRound,
+  Video,
+  GraduationCap,
+  FileQuestion,
+  Network,
+  UserRound,
+  Headset,
+  Wrench,
 } from "lucide-react";
 import ServiceData from "@/data/services.json";
 
-export default async function Home({ params: { lang }, }: { params: { lang: string }; }) {
+export default async function Home({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
   const dictionary = await getDictionary(lang);
 
   return (
     <div className="flex flex-col min-h-screen">
-      <SiteHeader dictionary={dictionary} />
+      <AdminHeader dictionary={dictionary} />
       <main className="flex-1">
         <div className="flex-1 w-full py-5">
           <h1 className="text-4xl text-center font-bold text-gray-900 dark:text-gray-100">
@@ -59,16 +63,18 @@ export default async function Home({ params: { lang }, }: { params: { lang: stri
             {ServiceData.map((service, index) => {
               const Icon = Icons[service.icon];
               return (
-                <Link href={`/${lang}/admin/new-ticket/${service.id}`} key={index}>
+                <Link
+                  href={`/${lang}/admin/new-ticket/${service.id}`}
+                  key={index}
+                >
                   <CardWithIcon
                     title={service.name}
                     description={service.description}
-                    icon={Icon ? <Icon size={48} /> : ''}
+                    icon={Icon ? <Icon size={48} /> : ""}
                   />
                 </Link>
               );
-            }
-            )}
+            })}
           </div>
         </div>
       </main>

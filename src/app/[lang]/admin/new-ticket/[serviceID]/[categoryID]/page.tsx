@@ -1,7 +1,7 @@
 "use client";
 
 import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { AdminHeader } from "@/components/admin-header";
 import Link from "next/link";
 
 import { Textarea } from "@/components/ui/textarea";
@@ -10,7 +10,13 @@ import { Button } from "@/components/ui/button";
 
 import { CloudUpload } from "lucide-react";
 
-import { Select, SelectTrigger, SelectContent, SelectValue, SelectItem } from "@/components/ui/select";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectValue,
+  SelectItem,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useEffect, useState } from "react";
@@ -39,12 +45,14 @@ export default function Home({
 
     const data = {
       subject: `${category.name}`,
-      details: fields.map(field => {
-        const [key, value] = Object.entries(field)[0];
-        return `${key}: ${value}`
-      }).join("\n"),
-      priority
-    }
+      details: fields
+        .map((field) => {
+          const [key, value] = Object.entries(field)[0];
+          return `${key}: ${value}`;
+        })
+        .join("\n"),
+      priority,
+    };
 
     const response = await fetch("/api/tickets/new", {
       method: "POST",
@@ -65,8 +73,10 @@ export default function Home({
     const fetchServices = async () => {
       const response = await fetch("/api/services");
       const data = await response.json();
-      const foundService = data.find(ser => ser.id == params.serviceID);
-      const serviceCategory = foundService.categories.find(cat => cat.id == params.categoryID);
+      const foundService = data.find((ser) => ser.id == params.serviceID);
+      const serviceCategory = foundService.categories.find(
+        (cat) => cat.id == params.categoryID
+      );
       setCategory(serviceCategory);
     };
     fetchServices();
@@ -79,7 +89,7 @@ export default function Home({
       ) : (
         <>
           <div className="flex flex-col min-h-screen">
-            <SiteHeader dictionary={dictionary} />
+            <AdminHeader dictionary={dictionary} />
             <main className="flex-1">
               <div className="flex-1 w-full py-5">
                 <h1 className="text-4xl text-center font-bold text-gray-900 dark:text-gray-100">
@@ -113,29 +123,27 @@ export default function Home({
               <div className="container flex-1 max-w-screen-2xl max-w-7-xl mx-auto py-8">
                 <form className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <section className="flex flex-col col-span-2 md:col-span-1">
-                    {
-                      category?.fields?.slice(0, 2).map((field, index) => {
-                        return (
-                          <div className="mb-4" key={index}>
-                            <Label
-                              className="text-xl font-medium "
-                              htmlFor={field}
-                            >
-                              {field}:*
-                            </Label>
-                            <Input
-                              id={field}
-                              placeholder={`Enter ${field.toLowerCase()}`}
-                              onChange={(e) => {
-                                const newFields = [...fields];
-                                newFields[index] = { [field]: e.target.value }
-                                setFields(newFields);
-                              }}
-                            />
-                          </div>
-                        )
-                      })
-                    }
+                    {category?.fields?.slice(0, 2).map((field, index) => {
+                      return (
+                        <div className="mb-4" key={index}>
+                          <Label
+                            className="text-xl font-medium "
+                            htmlFor={field}
+                          >
+                            {field}:*
+                          </Label>
+                          <Input
+                            id={field}
+                            placeholder={`Enter ${field.toLowerCase()}`}
+                            onChange={(e) => {
+                              const newFields = [...fields];
+                              newFields[index] = { [field]: e.target.value };
+                              setFields(newFields);
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
                     <div className="mb-4 flex items-center">
                       <Label
                         className="text-xl font-medium mr-4 "
@@ -148,12 +156,18 @@ export default function Home({
                           <SelectValue placeholder="Select Priority" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="1 - High">{dictionary.ticketHighPriority}</SelectItem>
-                          <SelectItem value="2 - Medium">{dictionary.ticketMediumPriority}</SelectItem>
-                          <SelectItem value="3 - Low">{dictionary.ticketLowPriority}</SelectItem>
+                          <SelectItem value="1 - High">
+                            {dictionary.ticketHighPriority}
+                          </SelectItem>
+                          <SelectItem value="2 - Medium">
+                            {dictionary.ticketMediumPriority}
+                          </SelectItem>
+                          <SelectItem value="3 - Low">
+                            {dictionary.ticketLowPriority}
+                          </SelectItem>
                         </SelectContent>
                       </Select>
-                      </div>
+                    </div>
                     <div className="mb-4">
                       <Label className="text-xl font-medium " htmlFor="files">
                         Files:
@@ -170,29 +184,29 @@ export default function Home({
                     </div>
                   </section>
                   <section className="flex flex-col col-span-2 md:col-span-1">
-                    {
-                      category?.fields?.slice(2).map((field, index) => {
-                        return (
-                          <div className="mb-4" key={index}>
-                            <Label
-                              className="text-xl font-medium "
-                              htmlFor={field}
-                            >
-                              {field}:*
-                            </Label>
-                            <Input
-                              id={field}
-                              placeholder={`Enter ${field.toLowerCase()}`}
-                              onChange={(e) => {
-                                const newFields = [...fields];
-                                newFields[index + 2] = { [field]: e.target.value }
-                                setFields(newFields);
-                              }}
-                            />
-                          </div>
-                        )
-                      })
-                    }
+                    {category?.fields?.slice(2).map((field, index) => {
+                      return (
+                        <div className="mb-4" key={index}>
+                          <Label
+                            className="text-xl font-medium "
+                            htmlFor={field}
+                          >
+                            {field}:*
+                          </Label>
+                          <Input
+                            id={field}
+                            placeholder={`Enter ${field.toLowerCase()}`}
+                            onChange={(e) => {
+                              const newFields = [...fields];
+                              newFields[index + 2] = {
+                                [field]: e.target.value,
+                              };
+                              setFields(newFields);
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
                     <div className="mb-4 flex-1 flex flex-col">
                       <Label
                         className="text-xl font-medium "
@@ -206,12 +220,14 @@ export default function Home({
                         className="flex-1"
                         onChange={(e) => {
                           const newFields = [...fields];
-                          newFields[category.fields.length] = { observations: e.target.value }
+                          newFields[category.fields.length] = {
+                            observations: e.target.value,
+                          };
                           setFields(newFields);
                         }}
                       />
                     </div>
-                  </section> 
+                  </section>
                   <section className="col-span-2 flex justify-end">
                     <Button
                       className="w-full md:w-auto"
