@@ -7,7 +7,6 @@ export async function POST(request) {
     path.resolve("src", "data", "tickets.json"),
     "utf-8"
   );
-  console.log("AAAAAAAAAAAAAAAAAAAAA")
   console.log(service)
   const tickets = JSON.parse(data);
   const lastTicketId = tickets[tickets.length - 1].id;

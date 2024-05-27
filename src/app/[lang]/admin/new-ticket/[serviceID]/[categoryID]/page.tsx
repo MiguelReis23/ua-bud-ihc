@@ -20,6 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useEffect, useState } from "react";
+import { set } from "zod";
 
 export default function Home({
   params,
@@ -83,6 +84,7 @@ export default function Home({
       const response = await fetch("/api/services");
       const data = await response.json();
       const foundService = data.find((ser: any) => ser.id == params.serviceID);
+      setService(foundService);
       const serviceCategory = foundService.categories.find(
         (cat: any) => cat.id == params.categoryID
       );

@@ -142,5 +142,17 @@
         "status": "Open",
         "lastMessage": "Today",
         "details": "Department: DETI\nLocation: 04.2.08\nNetwork socket(s) to be intervened: All\nBrief description of the need: No internet connection"
+    },
+    {
+        "id": 10,
+        "service": "Email",
+        "subject": "Change/Recover project email account password",
+        "priority": "3 - Low",
+        "date": "17/05/2024, 22:56:12",
+        "requester": "Miguel Vila",
+        "responsible": "Emidio Costa",
+        "status": "Open",
+        "lastMessage": "10 days ago",
+        "details": "Department: DETI\nProject/Event email account: GLUA\nobservations: I want to change the password for security reasons"
     }
 ]

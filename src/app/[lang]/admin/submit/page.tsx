@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/components/site-header";
+import { AdminHeader } from "@/components/admin-header";
 import { getDictionary } from "@/lib/get-dictionary";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
@@ -8,7 +8,7 @@ export default async function Home(params: { lang: any }) {
   const dictionary = await getDictionary(params.lang);
   return (
     <div className="flex flex-col min-h-screen">
-      <SiteHeader dictionary={dictionary} />
+      <AdminHeader dictionary={dictionary} />
       <main className="flex-1 flex justify-center items-center flex-col">
         <Icons.send width={400} height={400} />
         <p className="mt-4 text-center text-2xl font-bold">Success!</p>
