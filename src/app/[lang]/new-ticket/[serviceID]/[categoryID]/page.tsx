@@ -2,8 +2,9 @@
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { Toaster } from "@/components/ui/toaster"
 import Link from "next/link";
-
+import { useToast } from "@/components/ui/use-toast"
 import { Textarea } from "@/components/ui/textarea";
 
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useEffect, useState } from "react";
+import next from "next";
 
 export default function Home({
   params,
@@ -32,6 +34,8 @@ export default function Home({
   const [fields, setFields] = useState([]);
   const [priority, setPriority] = useState("3 - Low");
 
+  const { toast } = useToast();
+
   useEffect(() => {
     const fetchDictionary = async () => {
       const response = await fetch(`/api/get-dictionary?lang=${params.lang}`);
@@ -43,6 +47,21 @@ export default function Home({
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    // @ts-ignore
+    const hasAllRequiredFields = category?.fields.every((field) => fields.some((f) => Object.keys(f)[0] === field && Object.values(f)[0] !== ""));
+
+
+    if (!hasAllRequiredFields) {
+      
+      toast({
+        title: "Error",
+        description: "Please fill all required fields",
+        variant: "destructive"
+      })
+
+      return;
+    }
 
     const data = {
       service: `${
@@ -224,6 +243,7 @@ export default function Home({
                             </Label>
                             <Input
                               id={field}
+                              className="mt-3"
                               placeholder={`Enter ${field.toLowerCase()}`}
                               onChange={(e) => {
                                 const newFields = [...fields];
@@ -276,6 +296,7 @@ export default function Home({
           </div>
         </>
       )}
+              <Toaster />
     </>
   );
 }
