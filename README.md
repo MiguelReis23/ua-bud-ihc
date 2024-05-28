@@ -24,4 +24,4 @@ npm run build
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/en/login](http://localhost:3000/en/login) with your browser to see the result.
